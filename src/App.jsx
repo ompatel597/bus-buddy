@@ -1,8 +1,13 @@
 import React from "react";
-import Navbar from "./app/Components/components/Navbar";
+import Header from "./app/Components/Header/Header.jsx";
+import Banner from "./app/page/home/Banner/Banner.jsx";
 
 const App = () => {
-  return <Navbar />
+  return (
+    <>
+      <Banner />
+    </>
+  );
 };
 
 export default App;

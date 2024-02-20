@@ -114,4 +114,104 @@
   align-items: center;
   justify-content: center;
   display: flex;
+}
+
+* {
+  background-color: rgba(232, 248, 253, 0.7843137255);
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.main-container .part-1 {
+  width: 50%;
+}
+.main-container .part-1 img {
+  width: 100%;
+  height: 100%;
+  transform: scale(0.8);
+}
+.main-container .part-2 {
+  width: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+.main-container .part-2 .container {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 10px;
+  background-color: transparent;
+}
+.main-container .part-2 .container .header .text {
+  color: black;
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+}
+.main-container .part-2 .container .inputs {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.main-container .part-2 .container .inputs .input {
+  display: flex;
+  align-items: center;
+  background-color: #337A9D;
+  border-radius: 6px;
+}
+.main-container .part-2 .container .inputs .input img {
+  margin: 0px 30px;
+  background-color: transparent;
+}
+.main-container .part-2 .container .inputs .input input {
+  padding: 13px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 17px;
+}
+.main-container .part-2 .container .inputs .input input::-moz-placeholder {
+  color: black;
+}
+.main-container .part-2 .container .inputs .input input::placeholder {
+  color: black;
+}
+.main-container .part-2 .container .forget-pass {
+  margin-top: 27px;
+  color: #4e4e4e;
+  font-size: 18px;
+}
+.main-container .part-2 .container .forget-pass span {
+  color: #3c009d;
+  cursor: pointer;
+}
+.main-container .part-2 .container .submit-container {
+  display: flex;
+  gap: 30px;
+  margin: 40px auto;
+  align-items: center;
+}
+.main-container .part-2 .container .submit-container button {
+  background-color: #D5EFFF;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+form {
+  border-radius: 36px;
 }/*# sourceMappingURL=index.css.map */

@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "./app/Components/Header/Header.jsx";
 import Banner from "./app/page/home/Banner/Banner.jsx";
+import TopTravelled from "./app/page/home/Banner/TopTravelled.jsx";
 
 const App = () => {
   return (
     <>
       <Banner />
+      <TopTravelled/>
     </>
   );
 };

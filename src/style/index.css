@@ -1,117 +1,159 @@
-.navbar {
-  width: 85%;
-  margin: 0 auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
-.navbar nav {
+
+li {
+  list-style: none;
+}
+
+nav {
+  width: 75%;
+  margin: auto;
+}
+nav .navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+}
+nav .navbar .nav_logo img {
+  width: 11vw;
+}
+nav .navbar .nav_links ul {
+  display: flex;
+  gap: 20px;
+}
+
+.main_banner {
+  background-image: url("../../../../src/app/assets/banner.svg"), linear-gradient(90deg, rgb(231, 246, 254) 57%, rgb(238, 254, 247) 100%);
+  position: relative;
+  width: 100%;
+  background-position: 50% 45%;
+  background-repeat: no-repeat;
+  color: hsl(206, 48%, 24%);
+  padding-bottom: 100px;
+}
+.main_banner .banner_div {
+  width: 75%;
+  margin: auto;
+}
+.main_banner .banner_div .banner_text {
+  max-width: 55%;
+  margin-top: 20px;
+}
+.main_banner .banner_div .banner_text h1 {
+  font-size: 60px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+.main_banner .banner_div .search_form {
+  width: 75%;
+  margin: auto;
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+}
+.main_banner .banner_div .search_form form {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px 0px hsla(206, 48%, 24%, 0.1), 0px 6px 12px 0px hsla(206, 48%, 24%, 0.1);
+  gap: 30px;
 }
-.navbar nav img {
-  width: 15%;
+.main_banner .banner_div .search_form form div {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid black;
+  padding-left: 10px;
 }
-.navbar nav a {
-  text-decoration: none;
-  font-size: 1em;
-  font-weight: 700;
+.main_banner .banner_div .search_form form div label {
+  font-size: 10px;
+}
+.main_banner .banner_div .search_form form div input {
+  border: none;
+  outline: none;
+  padding: 10px 0px;
+  font-size: 16px;
+}
+.main_banner .banner_div .search_form form :last-child {
+  border-right: none;
+}
+.main_banner .banner_div .search_form form .source-starting, .main_banner .banner_div .search_form form .source-ending {
+  flex: 1;
+}
+.main_banner .banner_div .search_form form .date-bus {
+  border-right: none;
+}
+.main_banner .banner_div .search_form form .search-bus {
+  flex: 0.5;
+  background: hsl(206, 100%, 51%);
+  border-radius: 20px;
+}
+.main_banner .banner_div .search_form form .search-bus button {
+  border: none;
+  color: white;
+  background: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 15px 0px;
+  cursor: pointer;
 }
 
-.banner-top {
-  background-image: url(../../../../src/app/assets/banner.svg);
-  background-repeat: no-repeat;
-  width: 100%;
+.whycard_container {
+  margin: 100px auto;
 }
-.banner-top .banner-txt {
-  width: 85%;
+.whycard_container .whycard_div {
+  width: 65%;
   margin: auto;
-}
-.banner-top .banner-txt h1 {
-  margin-top: 95px;
-  color: #20415b;
-  font-weight: 800;
-  font-size: 4em;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  text-transform: none;
-}
-.banner-top .banner-txt p {
-  color: #446883;
-  font-size: 20px;
-  margin-top: 24px;
-  font-weight: 800;
-}
-.banner-top .banner-srch {
   display: flex;
-  border-radius: 10px;
-  text-align: center;
-  margin-top: 50px;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  box-shadow: 0px 1px 4px 0px hsla(206, 48%, 24%, 0.1), 0px 6px 12px 0px hsla(206, 48%, 24%, 0.1);
+  justify-content: space-between;
 }
-.banner-top .banner-srch .source-starting {
-  border-right: 1px solid rgb(221, 221, 221);
+
+.TopTravelledCardDiv {
+  width: 75%;
+  margin: auto;
   display: flex;
-  gap: 5px;
-  flex-direction: column;
-  padding: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-.banner-top .banner-srch .source-starting label {
-  text-align: left;
-  font-size: 12px;
+
+.whycard {
+  max-width: 350px;
 }
-.banner-top .banner-srch .source-starting input {
-  border: none;
-  outline: none;
+.whycard img {
+  width: 40px;
+  margin-bottom: 20px;
 }
-.banner-top .banner-srch .source-ending {
-  border-right: 1px solid rgb(221, 221, 221);
-  display: flex;
-  gap: 5px;
-  flex-direction: column;
-  padding: 10px;
+.whycard h4 {
+  margin-bottom: 5px;
+  color: #054652;
 }
-.banner-top .banner-srch .source-ending label {
-  text-align: left;
-  font-size: 12px;
+.whycard p {
+  color: #6f8b90;
 }
-.banner-top .banner-srch .source-ending input {
-  border: none;
-  outline: none;
+
+.ttc {
+  width: 350px;
+  height: 300px;
+  position: relative;
 }
-.banner-top .banner-srch .date-bus {
-  display: flex;
-  padding: 10px;
+.ttc img {
+  width: 100%;
+  height: 100%;
 }
-.banner-top .banner-srch .date-bus input {
-  border: none;
-  outline: none;
-}
-.banner-top .banner-srch .search-bus {
-  background-color: #0593ff;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-.banner-top .banner-srch .search-bus button {
-  background: transparent;
-  cursor: pointer;
-  border: none;
-}
-.banner-top .banner-srch .search-bus button .ri-search-2-line {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: white;
-}
-.banner-top .slogan {
-  margin-top: 80px;
-  gap: 15px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
+.ttc span {
+  position: absolute;
+  bottom: 0;
+  background-color: red;
+  z-index: 1;
 }/*# sourceMappingURL=index.css.map */

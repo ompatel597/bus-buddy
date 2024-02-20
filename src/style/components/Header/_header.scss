@@ -1,23 +1,26 @@
-.navbar{
-    width: 85%;
-    margin: 0 auto;
+nav{
+    width: 75%;
+    
+    margin: auto;
 
-    nav {
+    .navbar{
         display: flex;
         justify-content: space-between;
+        padding: 15px;
         align-items: center;
+        .nav_logo{
+            img{
+                width:11vw
+            }
+        }
+        .nav_links{
+            ul{
+                display: flex;
+                gap: 20px;
+            }
+        }
 
-        img{
-            width: 15%;
-        }
-        a{
-            text-decoration: none;
-            font-size: 1em;
-            font-weight: 700;
-        }
-        
+
     }
-    
+
 }
-
-

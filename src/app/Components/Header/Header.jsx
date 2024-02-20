@@ -5,12 +5,23 @@ import logo from "../../assets/BusBuddy-logo.png"
 
 const Header = () => {
   return (
-    <div className='navbar'>
-        <nav className="nav">
-            <img src={logo} alt="" />
-            <a href="#">Login</a>
-        </nav>
-    </div>
+    <>
+    
+    <nav>
+      <div className='navbar'>
+        <div className='nav_logo'>
+          <img src={logo} alt="busbuddy" />
+        </div>
+
+        <div className='nav_links'>
+            <ul>
+              <li>Contact Us</li>
+              <li>Log in</li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+    </>
   )
 }
 

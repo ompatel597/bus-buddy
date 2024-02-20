@@ -111,9 +111,10 @@
     margin:100px auto;
 
     .whycard_div{
-        width: 65%;
+        width: 75%;
         margin: auto;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
 
     }
@@ -123,9 +124,10 @@
 
 // Top Traveled bus css
 .TopTravelledCardDiv{
-    width: 75%;
+    width: 90%;
     margin: auto;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 25px;
 }

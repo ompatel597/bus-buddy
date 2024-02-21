@@ -18,10 +18,10 @@ const initialValues = {
 
 const Signup = () => {
 
-  const {values, errors, handleBlur,handleChange , handleSubmit} = useFormik({
+  const {values, errors, handleBlur,handleChange, touched , handleSubmit} = useFormik({
     initialValues: initialValues,
     validationSchema: signUpSchema,
-    onSubmit: async(values) => {
+    onSubmit: async(values, action) => {
       try {
         const responce = await fetch("https://busbooking.bestdevelopmentteam.com/Api/user_registration.php", {
           method: "POST",
@@ -39,6 +39,7 @@ const Signup = () => {
       } catch (error) {
         console.log(error);
       }
+      action.resetForm();
     }
   })
 
@@ -66,7 +67,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
               </div>
-                { <p className="form-error"> {errors.name} </p> }
+                { errors.name && touched.name ?( <p className="form-error"> {errors.name} </p> ): null}
               <div className="input">
                 <img src={phone_icon} alt="" />
                 <input
@@ -78,7 +79,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
               </div>
-              { <p className="form-error"> {errors.phone} </p> }
+              { errors.phone && touched.phone ?( <p className="form-error"> {errors.phone} </p> ): null}
 
               <div className="input">
                 <img src={email_icon} alt="" />
@@ -91,7 +92,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
               </div>
-              { <p className="form-error"> {errors.email} </p> }
+              { errors.email && touched.email ?( <p className="form-error"> {errors.email} </p> ): null}
 
               <div className="input">
                 <img src={pass_icon} alt="" />
@@ -105,7 +106,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
               </div>
-              { <p className="form-error"> {errors.pass} </p> }
+              { errors.pass && touched.pass ?( <p className="form-error"> {errors.pass} </p> ): null}
 
               <div className="input">
                 <img src={pass_icon} alt="" />
@@ -119,7 +120,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
               </div>
-              { <p className="form-error"> {errors.conpass} </p> }
+              { errors.conpass && touched.conpass ?( <p className="form-error"> {errors.conpass} </p> ): null}
 
             </div>
             <div className="forget-pass">

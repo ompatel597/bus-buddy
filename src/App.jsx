@@ -7,7 +7,7 @@ import Login from "./app/page/home/Login/Login.jsx";
 const App = () => {
   return (
     <>
-    <Signup/>
+    <Banner/>
     </>
   );
 };

@@ -1,12 +1,8 @@
-* {
-  background-color: #e8f8fdc8;
-}
 
 .main-container {
   width: 100%;
   display: flex;
   align-items: center;
-  
   .part-1 {
     width: 50%;
     img {
@@ -18,13 +14,12 @@
 
   .part-2 {
     width: 50%;
-
-    background: rgba(255, 255, 255, 0.2);
+    background: #d1f2fd;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    
+    margin-right: 20px;
     border-radius: 50px;
 
     .container {
@@ -34,51 +29,70 @@
       margin: auto;
       margin-top: 10px;
       background-color: transparent;
+      
 
       .header {
         .text {
           color: black;
-          font-size: 28px;
-          font-weight: 800;
+          font-size: 18px;
+          font-weight: 700;
           text-align: center;
         }
       }
 
       .inputs {
-        margin-top: 40px;
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
 
         .input {
+          box-shadow: 0 0 5pt 2pt #D3D3D3;
           display: flex;
           align-items: center;
-          background-color: #337A9D;
+          background-color: white;
           border-radius: 6px;
 
+          
+
           img {
-            margin: 0px 30px;
+            margin: 0px 10px;
             background-color: transparent;
           }
 
           input {
-            padding: 13px;
+            padding: 10px;
+            width: 500px;
+            background-color: transparent;
             background: transparent;
             border: none;
             outline: none;
+            font-weight: normal;
             color: black;
-            font-size: 17px;
+            font-size: 14px;
+
+            
 
             &::placeholder {
+              font-weight: normal;
+              font-size: 13px;
+              opacity: 0.3;
               color: black;
             }
+            
           }
+          
+        }
+        .form-error {
+          color: red;
+          font-size: 12px;
+          
         }
       }
       .forget-pass {
         margin-top: 27px;
         color: #4e4e4e;
-        font-size: 18px;
+        font-size: 13px;
         span {
           color: #3c009d;
           cursor: pointer;
@@ -91,14 +105,14 @@
         margin: 40px auto;
         align-items: center;
         button {
-          background-color: #D5EFFF;
-          color: black  ;
+          background-color: grey;
+          color: black;
           border: none;
           padding: 10px 20px;
           border-radius: 20px;
           cursor: pointer;
           font-size: 18px;
-          font-weight: 600;
+          font-weight: 500;
         }
       }
     }

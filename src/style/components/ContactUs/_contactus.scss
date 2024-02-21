@@ -1,0 +1,87 @@
+$color_1: #000;
+$color_2: #000;
+$color_3: #6b7280;
+$background-color_1: #fff;
+$background-color_2: rgba(158, 152, 152, 0.401);
+
+.form-cu {
+  background-color: #d1f2fd;
+  display: block;
+  margin: auto;
+  margin-top: 200px;
+  padding: 1rem;
+  max-width: 350px;
+  border-radius: 0.5rem;
+ 
+
+  .form-title-cu {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    color: $color_1;
+  }
+  .input-container-cu {
+    position: relative;
+    input {
+      outline: none;
+	  color: #000;
+      margin: 8px 0;
+      padding: 0.7rem;
+      border-radius: 0.5rem;
+	  border: none;
+      box-shadow: 0 0 5pt 2pt #d3d3d3;
+    }
+    textarea {
+      background-color: $background-color_1;
+      padding: 1rem;
+      padding-right: 3rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+	  border: none;
+      height: 150px;
+      width: 320px;
+      border-radius: 0.5rem;
+	  box-shadow: 0 0 5pt 2pt #D3D3D3;
+      margin: 0 auto;
+    }
+    img {
+      margin-right: 10px;
+    }
+  }
+  .form {
+    button {
+      outline: none;
+      border: 1px solid black;
+      margin: 8px 0;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+  }
+  .submit-cu {
+    display: block;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    background-color: $background-color_2;
+    color: $color_2;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+  }
+  .signup-link-cu {
+    color: $color_3;
+    font-size: 0.7rem;
+    line-height: 1.25rem;
+    text-align: center;
+  }
+  .signup-link {
+    a {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from "../../assets/BusBuddy-logo.png"
+import { Link } from 'react-router-dom'
 
 
 
@@ -16,7 +17,7 @@ const Header = () => {
         <div className='nav_links'>
             <ul>
               <li>Contact Us</li>
-              <li>Log in</li>
+              <li> <Link to="/login">Log in</Link></li>
             </ul>
         </div>
       </div>

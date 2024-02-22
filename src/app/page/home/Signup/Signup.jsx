@@ -4,9 +4,10 @@ import pass_icon from "../../../../app/assets/password.png";
 import email_icon from "../../../../app/assets/email.png";
 import bus_img from "../../../../app/assets/signupImg.png";
 import phone_icon from "../../../../app/assets/phone.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { signUpSchema } from "../../../Schemas";
+
 
 const initialValues = {
   name: "",
@@ -15,17 +16,18 @@ const initialValues = {
   pass:"",
   conpass:"",
 }
-
 const Signup = () => {
-
+  const navigate = useNavigate()
   const {values, errors, handleBlur,handleChange, touched , handleSubmit} = useFormik({
     initialValues: initialValues,
     validationSchema: signUpSchema,
     onSubmit: async(values, action) => {
       try {
-        const responce = await fetch("https://busbooking.bestdevelopmentteam.com/Api/user_registration.php", {
+        const responce = await fetch("https://busbooking.bestdevelopmentteam.com/Api/user_registration",
+         {
+         
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type":"application/json"},
           body: JSON.stringify({
             name: values.name,
             mobile_no: values.phone,
@@ -33,17 +35,19 @@ const Signup = () => {
             password: values.pass,
           }),
         });
-  
         let res = await responce.json();
-        console.log(res);
-      } catch (error) {
+        console.table(res ,"res");
+        if(res.STATUS === true){
+          navigate("/login")
+        }else {
+        //here
+        }
+      } catch (error) {-
         console.log(error);
       }
       action.resetForm();
     }
   })
-
-
   return (
     <div className="main-container">
       <div className="part-1">
@@ -80,7 +84,6 @@ const Signup = () => {
                 />
               </div>
               { errors.phone && touched.phone ?( <p className="form-error"> {errors.phone} </p> ): null}
-
               <div className="input">
                 <img src={email_icon} alt="" />
                 <input
@@ -93,7 +96,6 @@ const Signup = () => {
                 />
               </div>
               { errors.email && touched.email ?( <p className="form-error"> {errors.email} </p> ): null}
-
               <div className="input">
                 <img src={pass_icon} alt="" />
                 <input
@@ -107,7 +109,6 @@ const Signup = () => {
                 />
               </div>
               { errors.pass && touched.pass ?( <p className="form-error"> {errors.pass} </p> ): null}
-
               <div className="input">
                 <img src={pass_icon} alt="" />
                 <input
@@ -121,7 +122,6 @@ const Signup = () => {
                 />
               </div>
               { errors.conpass && touched.conpass ?( <p className="form-error"> {errors.conpass} </p> ): null}
-
             </div>
             <div className="forget-pass">
               Already have an account? <span>Login now</span>
@@ -135,5 +135,4 @@ const Signup = () => {
     </div>
   );
 };
-
 export default Signup;

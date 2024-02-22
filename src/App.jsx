@@ -9,17 +9,14 @@ import ContactUs from "./app/Components/ContactUs/ContactUs.jsx";
 
 const App = () => {
   return (
-  //   <BrowserRouter>
-  //   <Routes>
-  //     <Route path="/banner" element={<Banner />}/> 
-  //     <Route path="/login" element={<Login />}/> 
-  //     <Route path="/signup" element={<Signup />}/> 
-  //   </Routes>
-  // </BrowserRouter>  
-  <div>
-<Signup/>
-
-  </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/banner" element={<Banner />}/> 
+      <Route path="/login" element={<Login />}/> 
+      <Route path="/signup" element={<Signup />}/>
+    </Routes>
+  </BrowserRouter>  
+  
 
   
   );

@@ -9,6 +9,17 @@ li {
   list-style: none;
 }
 
+.Routes-link {
+  text-decoration: none;
+  color: rgb(88, 165, 209);
+}
+
+.Routes-link:hover {
+  text-decoration: none;
+  list-style: none;
+  text-shadow: rgb(52, 200, 161) 1px 0 10px;
+}
+
 nav {
   width: 75%;
   margin: auto;
@@ -25,6 +36,10 @@ nav .navbar .nav_logo img {
 nav .navbar .nav_links ul {
   display: flex;
   gap: 20px;
+}
+nav .navbar .nav_links ul .nav-txt {
+  color: black;
+  font-weight: 550;
 }
 
 .main_banner {
@@ -138,13 +153,14 @@ nav .navbar .nav_links ul {
   width: 50%;
 }
 .main-container .part-1 img {
+  margin-top: 150px;
   width: 100%;
   height: 100%;
   transform: scale(0.8);
 }
 .main-container .part-2 {
   width: 50%;
-  background: #d1f2fd;
+  background: white;
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -173,7 +189,14 @@ nav .navbar .nav_links ul {
   gap: 10px;
 }
 .main-container .part-2 .container .inputs .input {
-  box-shadow: 0 0 5pt 2pt #D3D3D3;
+  box-shadow: 0 0 5pt 2pt #d3d3d3;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 6px;
+}
+.main-container .part-2 .container .inputs .input:hover {
+  box-shadow: 0 0 5pt 2pt rgb(137, 149, 185);
   display: flex;
   align-items: center;
   background-color: white;
@@ -226,18 +249,43 @@ nav .navbar .nav_links ul {
   align-items: center;
 }
 .main-container .part-2 .container .submit-container button {
-  background-color: grey;
-  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  color: #fff;
+  background-color: #212121;
   border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin: 12px 0;
   cursor: pointer;
-  font-size: 18px;
-  font-weight: 500;
+  border-radius: 6px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
 }
 
 form {
   border-radius: 36px;
+}
+
+.main-container .submit-btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  color: #fff;
+  background-color: #212121;
+  border: none;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin: 12px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0;
 }
 
 .whycard {
@@ -284,13 +332,14 @@ form {
 }
 
 .form-cu {
-  background-color: #d1f2fd;
+  background-color: #fff;
   display: block;
   margin: auto;
   margin-top: 200px;
   padding: 1rem;
   max-width: 350px;
-  border-radius: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
 }
 .form-cu .form-title-cu {
   font-size: 1.25rem;
@@ -335,19 +384,21 @@ form {
   border-radius: 0.5rem;
 }
 .form-cu .submit-cu {
-  display: block;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  background-color: rgba(158, 152, 152, 0.401);
-  color: #000;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  color: #fff;
+  background-color: #212121;
+  border: none;
   width: 100%;
-  border-radius: 0.5rem;
-  text-transform: uppercase;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin: 12px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
 }
 .form-cu .signup-link-cu {
   color: #6b7280;
@@ -357,4 +408,155 @@ form {
 }
 .form-cu .signup-link a {
   text-decoration: underline;
+}
+
+.form-container-fp {
+  margin: auto;
+  margin-top: 200px;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 32px 24px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #212121;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+}
+
+.form-container-fp button:active {
+  scale: 0.95;
+}
+
+.form-container-fp .logo-container-fp {
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.form-container-fp .form-fp {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container-fp .form-group-fp {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form-container-fp .form-group-fp label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-container-fp .form-group-fp input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-family: inherit;
+  border: 1px solid #ccc;
+}
+
+.form-container-fp .form-group-fp input::-moz-placeholder {
+  opacity: 0.5;
+}
+
+.form-container-fp .form-group-fp input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container-fp .form-group-fp input:focus {
+  outline: none;
+  border-color: #1778f2;
+}
+
+.form-container-fp .form-submit-btn-fp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  color: #fff;
+  background-color: #212121;
+  border: none;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin: 12px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+}
+
+.form-container-fp .form-submit-btn-fp:hover {
+  background-color: #313131;
+}
+
+.form-container-fp .link-fp {
+  color: #1778f2;
+  text-decoration: none;
+}
+
+.form-container-fp .signup-link-fp {
+  align-self: center;
+  font-weight: 500;
+}
+
+.form-container-fp .signup-link-fp .link-fp {
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
 }/*# sourceMappingURL=index.css.map */

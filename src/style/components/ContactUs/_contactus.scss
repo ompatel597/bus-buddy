@@ -5,13 +5,15 @@ $background-color_1: #fff;
 $background-color_2: rgba(158, 152, 152, 0.401);
 
 .form-cu {
-  background-color: #d1f2fd;
+  background-color: #fff;
   display: block;
   margin: auto;
   margin-top: 200px;
   padding: 1rem;
   max-width: 350px;
-  border-radius: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+
  
 
   .form-title-cu {
@@ -59,19 +61,21 @@ $background-color_2: rgba(158, 152, 152, 0.401);
     }
   }
   .submit-cu {
-    display: block;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    background-color: $background-color_2;
-    color: $color_2;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    color: #fff;
+    background-color: #212121;
+    border: none;
     width: 100%;
-    border-radius: 0.5rem;
-    text-transform: uppercase;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    margin: 12px 0;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
   }
   .signup-link-cu {
     color: $color_3;

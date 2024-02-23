@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import user_icon from "../../../../app/assets/person.png";
 import pass_icon from "../../../../app/assets/password.png";
+import People_waiting from "../../../../app/assets/peoplewait.jpg"
+
 import email_icon from "../../../../app/assets/email.png";
 import bus_img from "../../../../app/assets/signupImg.png";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const initialValues = {
   email: "",
@@ -28,9 +30,12 @@ const Login = () => {
           }
         );
         let res = await responce.json();
-        console.log(res);
         if(res.STATUS === true){
           navigate("/banner")
+          console.log(res);
+        }else {
+          alert("email and password is incorrect")
+
         }
       } catch (error) {
         console.log(error);
@@ -42,7 +47,7 @@ const Login = () => {
   return (
     <div className="main-container">
       <div className="part-1">
-        <img src={bus_img} alt="" />
+        <img src={People_waiting} alt="" />
       </div>
       <div className="part-2">
         <form onSubmit={handleSubmit}>
@@ -75,12 +80,14 @@ const Login = () => {
                 />
               </div>
               <div className="forget-pass">
-                Forget password? <span>Click Here!</span>
+                Forget password? <span> <Link to="/forgetpass" className='Routes-link'>Click Here!</Link></span>
               </div>
-              <div className="submit-container">
-                <button className="submit-btn" type="submit">
+              
+              <div className="submit-container-login">
+                <button className="submit-btn-login" type="submit">
                   Login
                 </button>
+                <p>Don't have an account?<span> <Link to="/signup" className='Routes-link'>Register Here</Link> </span>  </p>
               </div>
             </div>
           </div>

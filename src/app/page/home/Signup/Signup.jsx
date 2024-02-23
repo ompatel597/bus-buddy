@@ -3,6 +3,7 @@ import user_icon from "../../../../app/assets/person.png";
 import pass_icon from "../../../../app/assets/password.png";
 import email_icon from "../../../../app/assets/email.png";
 import bus_img from "../../../../app/assets/signupImg.png";
+import People_waiting from "../../../../app/assets/peoplewait.jpg"
 import phone_icon from "../../../../app/assets/phone.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
@@ -23,7 +24,7 @@ const Signup = () => {
     validationSchema: signUpSchema,
     onSubmit: async(values, action) => {
       try {
-        const responce = await fetch("https://busbooking.bestdevelopmentteam.com/Api/user_registration",
+        const responce = await fetch("https://busbooking.bestdevelopmentteam.com/Api/user_registration.php",
          {
          
           method: "POST",
@@ -42,7 +43,7 @@ const Signup = () => {
         }else {
         //here
         }
-      } catch (error) {-
+      } catch (error) {
         console.log(error);
       }
       action.resetForm();
@@ -51,7 +52,7 @@ const Signup = () => {
   return (
     <div className="main-container">
       <div className="part-1">
-        <img src={bus_img} alt="" />
+        <img src={People_waiting} alt="" />
       </div>
       <div className="part-2">
         <div className="container">
@@ -124,7 +125,7 @@ const Signup = () => {
               { errors.conpass && touched.conpass ?( <p className="form-error"> {errors.conpass} </p> ): null}
             </div>
             <div className="forget-pass">
-              Already have an account? <span>Login now</span>
+              Already have an account? <span> <Link to="/login" className='Routes-link'>Login now</Link></span>
             </div>
             <div className="submit-container">
               <button className="submit-btn" type="submit">Create account</button>

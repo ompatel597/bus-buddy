@@ -1,15 +1,21 @@
-
-
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
 }
 
+li {
+  list-style: none;
+}
 
+.Routes-link {
+  text-decoration: none;
+  color: rgb(88, 165, 209);
+}
 
-li{
-list-style: none;
+.Routes-link:hover {
+  text-decoration: none;
+  list-style: none;
+  text-shadow: rgb(52, 200, 161) 1px 0 10px;
 }

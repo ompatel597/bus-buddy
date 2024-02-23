@@ -17,6 +17,12 @@ nav{
             ul{
                 display: flex;
                 gap: 20px;
+
+                .nav-txt{
+                    color: black;
+                    font-weight: 550;
+                    
+                }
             }
         }
 

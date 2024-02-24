@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   email:"",
-  otp: "",
+  pass: "",
 };
 
-const OtpVerify = () => {
+const ResetPass = () => {
   const navigate = useNavigate();
   const { values, errors, handleBlur, handleChange, touched, handleSubmit } =
     useFormik({
@@ -15,13 +15,13 @@ const OtpVerify = () => {
       onSubmit: async (values, action) => {
         try {
           const responce = await fetch(
-            "https://busbooking.bestdevelopmentteam.com/Api/submitotp.php",
+            "https://busbooking.bestdevelopmentteam.com/Api/newpwd.php",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 email: values.email,
-                otp: values.otpCode,
+                pass: values.pass,
               })
             }
           )
@@ -30,7 +30,7 @@ const OtpVerify = () => {
           if (res.STATUS === true) {
             console.log(res);
             
-            navigate("/resetpass");
+            navigate("/banner");
           } else {
             console.log(res);
           }
@@ -46,6 +46,8 @@ const OtpVerify = () => {
       <div className="container">
         <h1>OTP Code Verification</h1>
         <form onSubmit={handleSubmit}>
+        <label >Enter the OTP code sent to your mail:</label>
+
         <label htmlFor="email">Email :</label>
             <input
               type="email"
@@ -56,20 +58,20 @@ const OtpVerify = () => {
               name="email"
               placeholder="Enter your email"
             /> <br />
-          <label >Enter the OTP code sent to your mail:</label>
           <input
-            type="text"
-            value={values.otpCode}
-            onBlur={handleBlur}
-            onChange={handleChange}
-            name="otpCode"
-            maxLength={4}
-          />
-          <button type="submit">Verify OTP Code</button>
+                  type="password"
+                  value={values.pass}
+                  onBlur={handleBlur}
+                  autoComplete="off"
+                  name="pass"
+                  placeholder="Create Password"
+                  onChange={handleChange}
+                />
+          <button type="submit">Create pass</button>
         </form>
       </div>
     </>
   );
 };
 
-export default OtpVerify;
+export default ResetPass;

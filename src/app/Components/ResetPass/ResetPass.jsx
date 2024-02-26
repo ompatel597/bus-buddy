@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   email:"",
-  pass: "",
+  password: "",
 };
 
 const ResetPass = () => {
@@ -21,7 +21,7 @@ const ResetPass = () => {
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 email: values.email,
-                pass: values.pass,
+                password: values.pass,
               })
             }
           )

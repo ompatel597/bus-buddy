@@ -91,7 +91,7 @@ nav .navbar .nav_links ul .nav-txt {
 .main_banner .banner_div .search_form form div label {
   font-size: 10px;
 }
-.main_banner .banner_div .search_form form div input {
+.main_banner .banner_div .search_form form div select {
   border: none;
   outline: none;
   padding: 10px 0px;
@@ -105,6 +105,9 @@ nav .navbar .nav_links ul .nav-txt {
 }
 .main_banner .banner_div .search_form form .date-bus {
   border-right: none;
+}
+.main_banner .banner_div .search_form form .date-bus input {
+  border: 2px solid black;
 }
 .main_banner .banner_div .search_form form .search-bus {
   flex: 0.5;
@@ -526,13 +529,11 @@ body {
   margin: 0 auto;
   padding: 20px;
 }
-
-h1 {
+.container h1 {
   text-align: center;
 }
 
 form {
-  background-color: #f2f2f2;
   border-radius: 5px;
   padding: 20px;
 }
@@ -548,7 +549,7 @@ input[type=text] {
 }
 
 button[type=submit] {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -556,7 +557,6 @@ button[type=submit] {
   cursor: pointer;
   width: 100%;
 }
-
 button[type=submit]:hover {
   background-color: #45a049;
 }/*# sourceMappingURL=index.css.map */

@@ -1,12 +1,45 @@
+import { useEffect, useState } from "react";
 import Header from "../../../Components/Header/Header";
 import WhyCard from "../../../Components/WhyCard/WhyCard";
-
 import icon1 from "../../../assets/icon1.svg";
 import icon2 from "../../../assets/icon2.svg";
 import icon3 from "../../../assets/icon3.svg";
 import TopTravelled from "./TopTravelled";
+import axios from "axios";
 
 const Banner = () => {
+  const [user, setUser] = useState();
+  // const [names, setName] = useState({
+  //   name: "",
+  // });
+
+  // useEffect(() => {
+  //   loadStops();
+  // }, []);
+
+  // const loadStops = async () => {
+  //   const result = await axios.get(
+  //     "https://busbooking.bestdevelopmentteam.com/Api/stopsapi.php"
+  //   );
+  //   setName(result);
+  //   console.log(result);
+  // };
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await fetch(
+          "https://busbooking.bestdevelopmentteam.com/Api/stopsapi.php"
+        );
+        const responce = await res.json();
+        setUser(responce);
+      } catch {
+        console.log("errr");
+      }
+    }
+    getData();
+  }, []);
+
   return (
     <>
       <div className="main_banner">
@@ -20,12 +53,20 @@ const Banner = () => {
           <div className="search_form">
             <form action="">
               <div className="source-starting">
-                <label htmlFor="origin">ORIGIN</label>
-                <input type="text" placeholder="Leaving from..." />
+                <label htmlFor="">ORIGIN</label>
+                <select >
+                  {user?.map((e) => (
+                    <option>{e.name}</option>
+                  ))}
+                </select>
               </div>
               <div className="source-ending">
                 <label htmlFor="destination">DESTINATION</label>
-                <input type="text" placeholder="Going to..." />
+                <select >
+                  {user?.map((e) => (
+                    <option>{e.name}</option>
+                  ))}
+                </select>
               </div>
               <div className="date-bus">
                 <label htmlFor="date">DATE</label>

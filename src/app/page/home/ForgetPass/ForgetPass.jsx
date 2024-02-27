@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const initialValues = {
@@ -7,11 +7,13 @@ const initialValues = {
 };
 
 const ForgetPass = () => {
+  const [loading, setloading] = useState(false);
   const navigate = useNavigate();
   const { values, errors, handleBlur, handleChange, touched, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       onSubmit: async (values, action) => {
+        setloading(true);
         try {
           const responce = await fetch(
             "https://busbooking.bestdevelopmentteam.com/Api/forgetpwd",
@@ -26,12 +28,14 @@ const ForgetPass = () => {
           let res = await responce.json();
           console.log(res);
           if (res.STATUS === true) {
-            navigate("/otpverify");
+            navigate(`/otpverify?email=${values.email}`);
           } else {
             console.log(res);
           }
+          setloading(false);
         } catch (e) {
           console.log(e);
+          setloading(false);
         }
         action.resetForm();
       },
@@ -54,8 +58,12 @@ const ForgetPass = () => {
               placeholder="Enter your email"
             />
           </div>
-          <button className="form-submit-btn-fp" type="submit">
-            Send Email
+          <button
+            className="form-submit-btn-fp"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "loading" : "Send Email"}
           </button>
         </form>
         {/* <p className="signup-link-fp">

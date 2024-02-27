@@ -1,6 +1,11 @@
 import { useFormik } from "formik";
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 
 const initialValues = {
   email:"",
@@ -9,7 +14,10 @@ const initialValues = {
 
 const ResetPass = () => {
   const navigate = useNavigate();
-  const { values, errors, handleBlur, handleChange, touched, handleSubmit } =
+  let [searchParams, setSearchParams] = useSearchParams();
+  const resetEmail = searchParams.get("email");
+
+  const { values, errors, handleBlur, handleChange, touched, handleSubmit  } =
     useFormik({
       initialValues: initialValues,
       onSubmit: async (values, action) => {
@@ -20,26 +28,29 @@ const ResetPass = () => {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                email: values.email,
+                email: resetEmail,
                 password: values.pass,
               })
             }
           )
-       console.log(responce);
+      
           let res = await responce.json();
           if (res.STATUS === true) {
-            console.log(res);
+          
             
             navigate("/banner");
           } else {
-            console.log(res);
+            alert("error")
           }
         } catch (e) {
-          console.log(e);
+          
+          alert("error")
         }
         action.resetForm();
       },
     });
+
+   
 
   return (
     <>
@@ -67,7 +78,7 @@ const ResetPass = () => {
                   placeholder="Create Password"
                   onChange={handleChange}
                 />
-          <button type="submit">Create pass</button>
+          <button type="submit" >Create pass</button>
         </form>
       </div>
     </>

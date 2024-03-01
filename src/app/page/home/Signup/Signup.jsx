@@ -3,7 +3,7 @@ import user_icon from "../../../../app/assets/person.png";
 import pass_icon from "../../../../app/assets/password.png";
 import email_icon from "../../../../app/assets/email.png";
 import bus_img from "../../../../app/assets/signupImg.png";
-import People_waiting from "../../../../app/assets/peoplewait.jpg"
+import People_waiting from "../../../../app/assets/Peoplewaiting.webp"
 import phone_icon from "../../../../app/assets/phone.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";

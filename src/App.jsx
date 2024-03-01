@@ -9,6 +9,7 @@ import EmailVerification from "./app/page/home/EmailVerification/EmailVerificati
 import ForgetPass from "./app/page/home/ForgetPass/ForgetPass.jsx";
 import OtpVerify from "./app/Components/OtpVerify/OtpVerify.jsx";
 import ResetPass from "./app/Components/ResetPass/ResetPass.jsx";
+import BusList from "./app/page/home/BusList/BusList.jsx";
 
 const App = () => {
   return (
@@ -23,6 +24,8 @@ const App = () => {
         <Route path="/forgetpass" element={<ForgetPass />} />
         <Route path="/otpverify" element={<OtpVerify />} />
         <Route path="/resetpass" element={<ResetPass />} />
+        <Route path="/buslist" element={<BusList />} />
+
       </Routes>
     </BrowserRouter>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import user_icon from "../../../../app/assets/person.png";
 import pass_icon from "../../../../app/assets/password.png";
-import People_waiting from "../../../../app/assets/peoplewait.jpg"
+import People_waiting from "../../../../app/assets/Peoplewaiting.webp"
 
 import email_icon from "../../../../app/assets/email.png";
 import bus_img from "../../../../app/assets/signupImg.png";

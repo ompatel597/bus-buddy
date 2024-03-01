@@ -1,136 +1,127 @@
-
 // Main Banner CSS
 
+.main_banner {
+  background-image: url("../../../../src/app/assets/banner.svg"),
+    linear-gradient(
+      90deg,
+      rgba(231, 246, 254, 1) 57%,
+      rgba(238, 254, 247, 1) 100%
+    );
+  position: relative;
+  width: 100%;
+  background-position: 50% 45%;
+  background-repeat: no-repeat;
+  color: hsl(206, 48%, 24%);
+  padding-bottom: 100px;
 
-.main_banner{
-    background-image: url('../../../../src/app/assets/banner.svg'),linear-gradient(90deg, rgba(231,246,254,1) 57%, rgba(238,254,247,1) 100%);
-    position: relative;
-    width: 100%;
-    background-position: 50% 45%;
-    background-repeat: no-repeat;
-    color: hsl(206, 48%, 24%);
-    padding-bottom: 100px;
+  .banner_div {
+    width: 75%;
+    margin: auto;
 
-    .banner_div{
-        width: 75%;
-        margin: auto;
-        
-        .banner_text{
-            max-width: 55%;
-            margin-top: 20px;
+    .banner_text {
+      max-width: 55%;
+      margin-top: 20px;
 
-            h1{
-                font-size: 60px;
-                font-weight: 800;
-                margin-bottom: 15px;
-
-            }
-        }
-        .search_form{
-            width: 75%;
-            margin: auto;
-            position: absolute;
-            bottom: -40px;
-            left: 0;
-            right: 0;
-            form{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background-color: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0px 1px 4px 0px hsla(206, 48%, 24%, 0.1), 0px 6px 12px 0px hsla(206, 48%, 24%, 0.1);
-                gap: 30px;
-                div{
-                    display: flex;
-                    flex-direction: column;
-                    border-right: 1px solid black;
-                    padding-left: 10px;
-                   
-                    
-                    label{
-                        font-size: 10px;
-
-                    }
-                    select{
-                        border: none;
-                        outline: none;
-                        padding: 10px 0px;
-                        font-size: 16px;
-
-                    }
-                    
-                }
-                :last-child{
-                    border-right: none;
-                    
-                
-                }
-                .source-starting,.source-ending{
-                    flex: 1;
-
-                }
-                .date-bus{
-                    border-right: none;
-                    input{
-                        border: 2px solid black;
-                    }
-                }
-                .search-bus{                    
-                    flex: .5;
-                    background: hsl(206, 100%, 51%); 
-                    border-radius: 20px;
-
-                    button{
-                        border: none;
-                        color: white;
-                        background: none;
-                        display: flex;
-                        gap: 10px;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 16px;
-                        padding: 15px 0px;
-                        cursor: pointer;
-                        
-                    }
-                }
-
-            }
-           
-        }
-
+      h1 {
+        font-size: 60px;
+        font-weight: 800;
+        margin-bottom: 15px;
+      }
     }
+    .search_form {
+      width: 75%;
+      margin: auto;
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      right: 0;
+      form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 1px 4px 0px hsla(206, 48%, 24%, 0.1),
+          0px 6px 12px 0px hsla(206, 48%, 24%, 0.1);
+        gap: 30px;
+        div {
+          display: flex;
+          flex-direction: column;
+          border-right: 1px solid black;
+          padding-left: 10px;
+
+          label {
+            font-size: 10px;
+          }
+          select {
+            border: none;
+            outline: none;
+            padding: 10px 0px;
+            font-size: 16px;
+          }
+        }
+        :last-child {
+          border-right: none;
+        }
+        .source-starting,
+        .source-ending {
+          flex: 1;
+        }
+        .date-bus {
+          border-right: none;
+          label {
+            font-size: 10px;
+            margin-bottom: 15px;    
+          }
+          input {
+            margin-bottom: 15px;
+            border: 2px solid black;
+          }
+        }
+        .search-bus {
+          flex: 0.5;
+          background: hsl(206, 100%, 51%);
+          border-radius: 20px;
+
+          button {
+            border: none;
+            color: white;
+            background: none;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            padding: 15px 0px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
 }
-
-
 
 // WhyCard Css
 
+.whycard_container {
+  margin: 100px auto;
 
-
-.whycard_container{
-    margin:100px auto;
-
-    .whycard_div{
-        width: 75%;
-        margin: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-    }
-}
-
-
-
-// Top Traveled bus css
-.TopTravelledCardDiv{
-    width: 90%;
+  .whycard_div {
+    width: 75%;
     margin: auto;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
+    justify-content: space-between;
+  }
+}
+
+// Top Traveled bus css
+.TopTravelledCardDiv {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
 }

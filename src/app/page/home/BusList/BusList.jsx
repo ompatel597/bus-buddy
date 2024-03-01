@@ -1,15 +1,7 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import Header from "../../../Components/Header/Header";
-import WhyCard from "../../../Components/WhyCard/WhyCard";
-import icon1 from "../../../assets/icon1.svg";
-import icon2 from "../../../assets/icon2.svg";
-import icon3 from "../../../assets/icon3.svg";
-import TopTravelled from "./TopTravelled";
-import axios from "axios";
-import moment from "moment";
-import { date } from "yup";
-import { Await, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import banner_svg from "../../../assets/banner.svg";
+import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 
 const initialValues = {
@@ -18,15 +10,31 @@ const initialValues = {
   date: "",
 };
 
-const Banner = () => {
+const BusList = () => {
   const [user, setUser] = useState();
-  const navigate = useNavigate()
+  const [bus, setBus] = useState();
 
-  
   const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: async (values, action) => {
-     navigate(`/buslist?start=${values.start}&end=${values.end}&start_date=${values.date}`)
+      try {
+        const responce = await fetch(
+          "https://busbooking.bestdevelopmentteam.com/Api/bussrch.php",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              start: values.start,
+              end: values.end,
+              date: values.date,
+            }),
+          }
+        );
+        let ress = await responce.json();
+        setBus(ress);
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 
@@ -34,11 +42,11 @@ const Banner = () => {
   useEffect(() => {
     async function getData() {
       try {
-        const res = await fetch(
+        const ress = await fetch(
           "https://busbooking.bestdevelopmentteam.com/Api/stopsapi.php"
         );
-        const responce = await res.json();
-        setUser(responce);
+        const responces = await ress.json();
+        setUser(responces);
       } catch {
         console.log("errr");
       }
@@ -48,14 +56,9 @@ const Banner = () => {
 
   return (
     <>
-      <div className="main_banner">
+      <div className="main-buslist">
         <Header />
         <div className="banner_div">
-          <div className="banner_text">
-            <h1>Find cheap bus tickets for your next trip</h1>
-            <p>Easily compare and book your next trip with Busbud</p>
-          </div>
-
           <div className="search_form">
             <form onSubmit={handleSubmit}>
               <div className="source-starting">
@@ -96,32 +99,22 @@ const Banner = () => {
               </div>
             </form>
           </div>
+          <div className="bus-box">
+            bus name
+            <div>
+              {bus?.data?.map((e) => (
+                <p>
+                  {e.busname} <br />
+                  
+                  </p>
+              ))}
+            </div>
+            
+          </div>
         </div>
       </div>
-
-      <div className="whycard_container">
-        <div className="whycard_div">
-          <WhyCard
-            img={icon1}
-            heading="Your pick of rides at low prices"
-            text="No matter where you’re going,find the perfect ride from our wide range of destinations and routes at low prices."
-          />
-          <WhyCard
-            img={icon2}
-            heading="Trust who you travel with"
-            text="We take the time to get to know each of our members and bus partners. We check reviews, profiles and IDs, so you know who you’re travelling with and can book your ride at ease on our secure platform."
-          />
-          <WhyCard
-            img={icon3}
-            heading="Scroll, click, tap and go!"
-            text="Booking a ride has never been easier!  you can book a ride close to you in just minutes."
-          />
-        </div>
-      </div>
-
-      <TopTravelled />
     </>
   );
 };
 
-export default Banner;
+export default BusList;

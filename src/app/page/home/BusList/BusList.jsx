@@ -102,9 +102,9 @@ const BusList = () => {
           <div className="bus-box">
             bus name
             <div>
-              {bus?.data?.map((e) => (
-                <p>
-                  {e.busname} <br />
+              {bus?.data?.map((e, r) => (
+                <p key={r}>
+                  {e.busname}  <br />
                   
                   </p>
               ))}

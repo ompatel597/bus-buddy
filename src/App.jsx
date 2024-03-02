@@ -1,15 +1,20 @@
 import React from "react";
-import Banner from "./app/page/home/Banner/Banner.jsx";
-import Signup from "./app/page/home/Signup/Signup.jsx";
-import Login from "./app/page/home/Login/Login.jsx";
-import TopTravelled from "./app/page/home/Banner/TopTravelled.jsx";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+//Components
 import ContactUs from "./app/Components/ContactUs/ContactUs.jsx";
-import EmailVerification from "./app/page/home/EmailVerification/EmailVerification.jsx";
-import ForgetPass from "./app/page/home/ForgetPass/ForgetPass.jsx";
+import Footer from "./app/Components/Footer/Footer.jsx";
 import OtpVerify from "./app/Components/OtpVerify/OtpVerify.jsx";
 import ResetPass from "./app/Components/ResetPass/ResetPass.jsx";
+import TopTravelled from "./app/page/home/Banner/TopTravelled.jsx";
+
+//Page-home
+import Banner from "./app/page/home/Banner/Banner.jsx";
 import BusList from "./app/page/home/BusList/BusList.jsx";
+import EmailVerification from "./app/page/home/EmailVerification/EmailVerification.jsx";
+import ForgetPass from "./app/page/home/ForgetPass/ForgetPass.jsx";
+import Signup from "./app/page/home/Signup/Signup.jsx";
+import Login from "./app/page/home/Login/Login.jsx";
 
 const App = () => {
   return (

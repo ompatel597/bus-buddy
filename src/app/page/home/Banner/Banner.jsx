@@ -46,6 +46,8 @@ const Banner = () => {
     getData();
   }, []);
 
+  
+
   return (
     <>
       <div className="main_banner">
@@ -83,6 +85,7 @@ const Banner = () => {
                 <input
                   type="date"
                   value={values.date}
+                  
                   onChange={handleChange}
                   name="date"
                   id="datepicker"

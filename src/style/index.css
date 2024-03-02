@@ -20,6 +20,10 @@ li {
   text-shadow: rgb(52, 200, 161) 1px 0 10px;
 }
 
+.error_page {
+  margin-left: 25vw;
+}
+
 nav {
   width: 75%;
   margin: auto;

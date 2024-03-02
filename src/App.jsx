@@ -15,13 +15,13 @@ import EmailVerification from "./app/page/home/EmailVerification/EmailVerificati
 import ForgetPass from "./app/page/home/ForgetPass/ForgetPass.jsx";
 import Signup from "./app/page/home/Signup/Signup.jsx";
 import Login from "./app/page/home/Login/Login.jsx";
+import Error from "./app/page/home/Error.jsx";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Banner />} />
-        <Route path="/banner" element={<Banner />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/contactus" element={<ContactUs />} />
@@ -30,6 +30,9 @@ const App = () => {
         <Route path="/otpverify" element={<OtpVerify />} />
         <Route path="/resetpass" element={<ResetPass />} />
         <Route path="/buslist" element={<BusList />} />
+
+
+        <Route path="*" element={<Error />} />
 
       </Routes>
     </BrowserRouter>

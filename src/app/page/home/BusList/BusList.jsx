@@ -163,7 +163,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -171,7 +174,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -179,7 +185,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -187,7 +196,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -195,7 +207,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -203,7 +218,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -211,7 +229,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -219,7 +240,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -227,7 +251,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -235,7 +262,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -245,7 +275,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -253,7 +286,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -261,7 +297,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -269,7 +308,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -277,7 +319,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -285,7 +330,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -293,7 +341,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -301,7 +352,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -309,7 +363,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>
@@ -317,7 +374,10 @@ const BusList = () => {
                   <td>
                     <div className="seat-wrapper">
                       <button className="seat">
-                        <img src={seat_icon} alt="" />
+                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+</svg>
                         <span></span>
                       </button>
                     </div>

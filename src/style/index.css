@@ -573,7 +573,7 @@ button[type=submit]:hover {
 }
 
 .main-buslist {
-  background-color: #E7F9FC;
+  background-color: #e7f9fc;
   display: flex;
   flex-direction: column;
 }
@@ -616,7 +616,8 @@ button[type=submit]:hover {
   border-right: none;
 }
 
-.main-buslist .banner_div .search_form form .source-starting, .main-buslist .banner_div .search_form form .source-ending {
+.main-buslist .banner_div .search_form form .source-starting,
+.main-buslist .banner_div .search_form form .source-ending {
   flex: 1;
 }
 
@@ -747,4 +748,9 @@ button[type=submit]:hover {
 }
 .showBusDetail hr {
   margin: 20px 0px;
+}
+.showBusDetail .hiddentBtn button {
+  padding: 0;
+  border: none;
+  background: none;
 }/*# sourceMappingURL=index.css.map */

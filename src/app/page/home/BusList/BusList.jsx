@@ -3,7 +3,6 @@ import Header from "../../../Components/Header/Header";
 import banner_svg from "../../../assets/banner.svg";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import moment from "moment";
 import seat_icon from "../../../assets/icon_seat.svg";
 
 const initialValues = {
@@ -446,8 +445,6 @@ const BusList = () => {
               </tbody>
             </table>
           </div>
-
-
         </div>
       ))}
     </>

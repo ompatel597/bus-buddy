@@ -654,8 +654,8 @@ button[type=submit]:hover {
 }
 
 .showBusDetail {
-  width: 75%;
-  margin: 100px auto;
+  width: 55%;
+  margin: 50px auto;
   border: 1px solid #e6e6e6;
   border-radius: 12px;
   padding: 20px;
@@ -712,4 +712,39 @@ button[type=submit]:hover {
   align-items: center;
   padding: 10px;
   border-radius: 5px;
+}
+.showBusDetail .showBusMiddle .showBusPrice {
+  display: flex;
+  gap: 15px;
+}
+.showBusDetail .showBusMiddle .showBusPrice p {
+  font-size: 24px;
+  font-weight: 600;
+}
+.showBusDetail .showBusMiddle .showBusPrice p span {
+  font-size: 13px;
+  font-weight: 400;
+}
+.showBusDetail .showBusMiddle .showBusPrice .selectSeatBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+.showBusDetail .showBusMiddle .showBusPrice .selectSeatBtn button {
+  font-size: 17px;
+  background-color: rgb(255, 79, 23);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+.showBusDetail .showBusMiddle .showBusPrice .selectSeatBtn span {
+  font-weight: 400;
+  font-size: 14px;
+}
+.showBusDetail hr {
+  margin: 20px 0px;
 }/*# sourceMappingURL=index.css.map */

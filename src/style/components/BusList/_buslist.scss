@@ -70,8 +70,8 @@
 }
 
 .showBusDetail{
-   width: 75%;
-   margin: 100px auto;
+   width: 55%;
+   margin: 50px auto;
     border: 1px solid #e6e6e6;
     border-radius: 12px;
     padding: 20px;
@@ -133,6 +133,46 @@
             }
         }
 
+        .showBusPrice{
+            display: flex;
+            gap: 15px;
+            p{
+                
+                font-size: 24px;
+                font-weight: 600;
+                span{
+                    font-size: 13px;
+                    font-weight: 400;
+                }
+            }
+            .selectSeatBtn{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+        
+                justify-content: center;
+                button{
+                    font-size: 17px;
+                    background-color: rgb(255, 79, 23);
+                    border: none;
+                    border-radius: 8px;
+                    padding: 8px 14px;
+                    color: white;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+                span{
+                    font-weight: 400;
+                    font-size: 14px;
+                }
+            }
+        }
 
+
+    }
+
+    hr{
+        margin: 20px 0px;
+        
     }
 }

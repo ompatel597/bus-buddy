@@ -102,56 +102,51 @@ const BusList = () => {
 
         </div>
       </div>
-      {/* <div className="bus-box">
-        bus name
-        <div>
-          {bus?.data?.map((e, r) => (
-            <p key={r}>
-              {e.busname}
 
-              {e.price}
-            </p>
 
-          ))}
-        </div>
 
-      </div> */}
 
-      <div className="showBusDetail">
-        <div className="showBusHeader">
-          <div className="showBusName">
-            <h2>India TravelBhavama</h2>
-            <span>A/c,Sleeper,Deluxe</span>
-          </div>
-          <div className="showBusReview">
-            <div className="showRating">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none"><g clip-path="url(#star_svg__a)"><path fill="#fff" d="M6.5 8.636 8.573 9.89c.38.23.845-.11.745-.54l-.55-2.36 1.835-1.59a.499.499 0 0 0-.285-.875L7.904 4.32 6.96 2.09a.5.5 0 0 0-.92 0l-.945 2.225-2.415.205a.499.499 0 0 0-.285.875l1.835 1.59-.55 2.36c-.1.43.365.77.745.54z"></path></g><defs><clipPath id="star_svg__a"><path fill="#fff" d="M.5 0h12v12H.5z"></path></clipPath></defs></svg>
-              <p>4.8</p>
+
+      {bus?.data?.map((e, r) => (
+
+        <div className="showBusDetail" key={r}>
+
+          <div className="showBusHeader">
+            <div className="showBusName">
+              <h2>{e.busname}</h2>
+              <span>A/c,Sleeper,Deluxe</span>
             </div>
-            <div className="countReview">
-              21
+            <div className="showBusReview">
+              <div className="showRating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none"><g clip-path="url(#star_svg__a)"><path fill="#fff" d="M6.5 8.636 8.573 9.89c.38.23.845-.11.745-.54l-.55-2.36 1.835-1.59a.499.499 0 0 0-.285-.875L7.904 4.32 6.96 2.09a.5.5 0 0 0-.92 0l-.945 2.225-2.415.205a.499.499 0 0 0-.285.875l1.835 1.59-.55 2.36c-.1.43.365.77.745.54z"></path></g><defs><clipPath id="star_svg__a"><path fill="#fff" d="M.5 0h12v12H.5z"></path></clipPath></defs></svg>
+                <p>4.8</p>
+              </div>
+              <div className="countReview">
+                21
+              </div>
             </div>
           </div>
-        </div>
-        <div className="showBusMiddle">
-          <div className="showBusTiming">
-            <span>10.50 PM</span>
-            <span>5h 30m</span>
-            <span>4.20 AM</span>
-          </div>
-          <div className="showBusPrice">
-            <span>from ₹459</span>
-            <div className="selectSeatBtn">
-              <button>Select seat</button>
-              <span>19 seats available</span>
+          <div className="showBusMiddle">
+            <div className="showBusTiming">
+              <span>{e.ArrivalTime}
+              </span>
+              <span>5h 30m</span>
+              <span>{e.DeptTime}</span>
+            </div>
+            <div className="showBusPrice">
+              <p><span>from</span> ₹{e.price}</p>
+              <div className="selectSeatBtn">
+                <button>Select seat</button>
+                <span>{e.AvSeats} seats available</span>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-        <div className="showBusLower">
+          <hr />
+          <div className="showBusLower">
 
+          </div>
         </div>
-      </div>
+      ))}
     </>
   );
 };

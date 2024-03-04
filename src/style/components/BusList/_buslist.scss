@@ -1,183 +1,185 @@
 .main-buslist {
-    background-color: #E7F9FC;
-    display: flex;
-    flex-direction: column;
+  background-color: #e7f9fc;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-buslist .banner_div .search_form {
-    width: 75%;
-    margin: auto;
-  
+  width: 75%;
+  margin: auto;
 }
 .main-buslist .banner_div .search_form form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 1px 4px 0px rgba(32, 65, 91, 0.1), 0px 6px 12px 0px rgba(32, 65, 91, 0.1);
-    gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 4px 0px rgba(32, 65, 91, 0.1),
+    0px 6px 12px 0px rgba(32, 65, 91, 0.1);
+  gap: 30px;
 }
 .main-buslist .banner_div .search_form form div {
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid black;
-    padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid black;
+  padding-left: 10px;
 }
 .main-buslist .banner_div .search_form form div label {
-    font-size: 10px;
+  font-size: 10px;
 }
 .main-buslist .banner_div .search_form form div select {
-    border: none;
-    outline: none;
-    padding: 10px 0px;
-    font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 10px 0px;
+  font-size: 16px;
 }
 .main-buslist .banner_div .search_form form :last-child {
-    border-right: none;
+  border-right: none;
 }
-.main-buslist .banner_div .search_form form .source-starting, .main-buslist .banner_div .search_form form .source-ending {
-    flex: 1;
+.main-buslist .banner_div .search_form form .source-starting,
+.main-buslist .banner_div .search_form form .source-ending {
+  flex: 1;
 }
 .main-buslist .banner_div .search_form form .date-bus {
-    border-right: none;
+  border-right: none;
 }
 .main-buslist .banner_div .search_form form .date-bus label {
-    font-size: 10px;
-    margin-bottom: 15px;
+  font-size: 10px;
+  margin-bottom: 15px;
 }
 .main-buslist .banner_div .search_form form .date-bus input {
-    margin-bottom: 15px;
-    border: 2px solid black;
+  margin-bottom: 15px;
+  border: 2px solid black;
 }
 .main-buslist .banner_div .search_form form .search-bus {
-    flex: 0.5;
-    background: #0593ff;
-    border-radius: 20px;
+  flex: 0.5;
+  background: #0593ff;
+  border-radius: 20px;
 }
 .main-buslist .banner_div .search_form form .search-bus button {
-    border: none;
-    color: white;
-    background: none;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    padding: 15px 0px;
-    cursor: pointer;
+  border: none;
+  color: white;
+  background: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 15px 0px;
+  cursor: pointer;
 }
 
-.showBusDetail{
-   width: 55%;
-   margin: 50px auto;
-    border: 1px solid #e6e6e6;
-    border-radius: 12px;
-    padding: 20px;
+.showBusDetail {
+  width: 55%;
+  margin: 50px auto;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 20px;
 
-    .showBusHeader{
+  .showBusHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    align-items: center;
+    .showBusName {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      span {
+        font-weight: 300;
+        font-size: 14px;
+      }
+    }
+
+    .showBusReview {
+      display: flex;
+      gap: 3px;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #e6e6e6;
+      border-radius: 5px;
+      font-size: 12px;
+      .showRating {
+        background-color: rgb(17, 166, 112);
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
         align-items: center;
-        .showBusName{
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            span{
-                font-weight: 300;
-                font-size: 14px;
-            }
-        }
-
-        .showBusReview{
-            display: flex;
-            gap: 3px;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid #e6e6e6;
-            border-radius: 5px;
-            font-size: 12px;
-            .showRating{
-                background-color: rgb(17, 166, 112);
-                display: flex;
-                align-items: center;
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
-                padding: 5px 10px;
-                color: white;
-                gap: 2px;
-            }
-        }
-
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding: 5px 10px;
+        color: white;
+        gap: 2px;
+      }
     }
-    .showBusMiddle{
+  }
+  .showBusMiddle {
+    display: flex;
+    justify-content: space-between;
+
+    .showBusTiming {
+      display: flex;
+      gap: 20px;
+      font-size: 20px;
+      font-weight: 500;
+      align-items: center;
+      :nth-child(2) {
+        background-color: rgb(243, 243, 243);
+        font-size: 14px;
         display: flex;
-        justify-content: space-between;
-
-        .showBusTiming{
-            display: flex;
-            gap: 20px;
-            font-size: 20px;
-            font-weight: 500;
-            align-items: center;
-            :nth-child(2){
-               background-color:  rgb(243, 243, 243);
-                font-size: 14px;
-                display: flex;
-                align-items: center;
-                padding: 10px;
-                border-radius: 5px;
-            
-            }
-        }
-
-        .showBusPrice{
-            display: flex;
-            gap: 15px;
-            p{
-                
-                font-size: 24px;
-                font-weight: 600;
-                span{
-                    font-size: 13px;
-                    font-weight: 400;
-                }
-            }
-            .selectSeatBtn{
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-        
-                justify-content: center;
-                button{
-                    font-size: 17px;
-                    background-color: rgb(255, 79, 23);
-                    border: none;
-                    border-radius: 8px;
-                    padding: 8px 14px;
-                    color: white;
-                    font-weight: 600;
-                    cursor: pointer;
-                }
-                span{
-                    font-weight: 400;
-                    font-size: 14px;
-                }
-            }
-        }
-
-
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+      }
     }
 
-    hr{
-        margin: 20px 0px;
-        
+    .showBusPrice {
+      display: flex;
+      gap: 15px;
+      p {
+        font-size: 24px;
+        font-weight: 600;
+        span {
+          font-size: 13px;
+          font-weight: 400;
+        }
+      }
+      .selectSeatBtn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        justify-content: center;
+        button {
+          font-size: 17px;
+          background-color: rgb(255, 79, 23);
+          border: none;
+          border-radius: 8px;
+          padding: 8px 14px;
+          color: white;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        span {
+          font-weight: 400;
+          font-size: 14px;
+        }
+      }
     }
 
     &:hover{
         cursor: pointer;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     }
+}
+  }
+
+  hr {
+    margin: 20px 0px;
+  }
+
+  .hiddentBtn button {
+    padding: 0;
+    border: none;
+    background: none;
+  }
 }

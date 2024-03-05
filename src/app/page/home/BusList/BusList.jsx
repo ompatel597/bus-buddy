@@ -4,11 +4,7 @@ import banner_svg from "../../../assets/banner.svg";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import seat_icon from "../../../assets/icon_seat.svg";
-import { useSearchParams } from "react-router-dom";
-
-
-
-
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const initialValues = {
   start: "",
@@ -17,6 +13,7 @@ const initialValues = {
 };
 
 const BusList = () => {
+  const navigater = useNavigate();
   const [user, setUser] = useState();
   const [bus, setBus] = useState();
 
@@ -28,9 +25,6 @@ const BusList = () => {
   const endpara = searchParams.get("end");
   const datepara = searchParams.get("date");
 
-
-
-
   const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: async (values, action) => {
@@ -41,9 +35,9 @@ const BusList = () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              start: values.start,
-              end: values.end,
-              date: values.date,
+              start: startpara,
+              end: endpara,
+              date: datepara,
             }),
           }
         );
@@ -71,13 +65,16 @@ const BusList = () => {
     getData();
   }, []);
 
+  useEffect(() => {
+    handleSubmit();
+  }, [startpara, endpara, datepara]);
 
   const [showSeat, setShowSeat] = useState(false);
 
   //Bus Seats API
 
   useEffect(() => {
-    async function getData() {
+    async function getData(values) {
       try {
         const res = await fetch(
           "https://busbooking.bestdevelopmentteam.com/Api/setas.php",
@@ -86,13 +83,12 @@ const BusList = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               bus_id: 24,
-              date: "2024/03/04",
+              date: datepara,
             }),
           }
         );
         const setrep = await res.json();
         setSeats(setrep);
-        console.log(setrep);
       } catch {
         console.log("seat error");
       }
@@ -100,8 +96,26 @@ const BusList = () => {
     getData();
   }, []);
 
-
-
+  /// bus id and date
+  const sendDataToBackend = async (busId, date) => {
+    try {
+      const response = await fetch(
+        "https://busbooking.bestdevelopmentteam.com/Api/setas.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            bus_id: busId,
+            date: datepara,
+          }),
+        }
+        // alert(busId),
+        // alert(date)
+      );
+    } catch (error) {
+      console.log("Error sending data", error);
+    }
+  };
 
   return (
     <>
@@ -114,18 +128,33 @@ const BusList = () => {
                 <label htmlFor="">ORIGIN</label>
                 <select
                   name="start"
-                  value={values.start}
-                  onChange={handleChange}
+                  value={startpara}
+                  onChange={(e) => {
+                    const valueStart = e.target.value;
+                    setSearchParams((pre) => {
+                      pre.set("start", valueStart);
+                      return pre;
+                    });
+                  }}
                 >
                   {user?.map((e, j) => (
                     <option key={j}>{e.name}</option>
                   ))}
                 </select>
-
               </div>
               <div className="source-ending">
                 <label htmlFor="destination">DESTINATION</label>
-                <select name="end" value={values.end} onChange={handleChange}>
+                <select
+                  name="end"
+                  value={endpara}
+                  onChange={(e) => {
+                    const valueEnd = e.target.value;
+                    setSearchParams((pre) => {
+                      pre.set("end", valueEnd);
+                      return pre;
+                    });
+                  }}
+                >
                   {user?.map((e, i) => (
                     <option key={i}>{e.name}</option>
                   ))}
@@ -135,8 +164,14 @@ const BusList = () => {
                 <label htmlFor="date">DATE</label>
                 <input
                   type="date"
-                  value={values.date}
-                  onChange={handleChange}
+                  value={datepara}
+                  onChange={(e) => {
+                    const valueDate = e.target.value;
+                    setSearchParams((pre) => {
+                      pre.set("date", valueDate);
+                      return pre;
+                    });
+                  }}
                   name="date"
                   id="datepicker"
                 />
@@ -187,6 +222,7 @@ const BusList = () => {
           <div className="showBusMiddle">
             <div className="showBusTiming">
               <span>{e.ArrivalTime}</span>
+              <span> bus id: {e.busid}</span>
               <span>5h 30m</span>
               <span>{e.DeptTime}</span>
             </div>
@@ -195,9 +231,18 @@ const BusList = () => {
                 <span>from</span> ₹{e.price}
               </p>
               <div className="selectSeatBtn">
-                <button onClick={() => {
-                  setShowSeat(!showSeat)
-                }}>Select seat</button>
+                <button
+                  type="submit"
+                  onClick={() => {
+                    setShowSeat(!showSeat);
+
+                    const busId = e.busid;
+                    const date = datepara;
+                    sendDataToBackend(busId, date);
+                  }}
+                >
+                  Select seat
+                </button>
                 <span>{e.AvSeats} seats available</span>
               </div>
             </div>
@@ -206,367 +251,52 @@ const BusList = () => {
           <div className="showBusLower"></div>
 
           {/* Bus seats */}
-          {showSeat && <div className="bus-seats">
-            <table>
-              <tbody>
-                {/* Seat */}
-                <tr className="first-seats-row hiddentBtn">
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="second-seats-row hiddentBtn">
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-                        </svg>
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                {/* Hiddent lines */}
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr className="third-seats-row hiddentBtn">
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="seat-wrapper">
-                      <button className="seat">
-                        <img src={seat_icon} alt="" />
-                        <span></span>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <table>
-              <tr>
-                {seats?.seats?.map((e, j) => (
-                  <td key={j}>{e.seatNo}</td>
-                ))}
-              </tr>
-
-
-            </table>
-          </div>}
-
-
+          {showSeat && (
+            <div className="bus-seats">
+              {seats?.seats?.map((s, k) => (
+                <table key={k}>
+                  <tbody>
+                    {/* Seat */}
+                    <tr className="first-seats-row hiddentBtn">
+                      <td>
+                        <div className="seat-wrapper">
+                          <button className="seat">
+                            {s.seatNo}
+                            <svg
+                              width="64"
+                              height="30"
+                              viewBox="0 0 60 30"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="59"
+                                height="29"
+                                rx="3.5"
+                                fill="white"
+                                stroke="#BDBDBD"
+                              ></rect>
+                              <rect
+                                x="56.5"
+                                y="5.5"
+                                width="3"
+                                height="19"
+                                rx="1.5"
+                                fill="white"
+                                stroke="#BDBDBD"
+                              ></rect>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </>
@@ -574,5 +304,3 @@ const BusList = () => {
 };
 
 export default BusList;
-
-

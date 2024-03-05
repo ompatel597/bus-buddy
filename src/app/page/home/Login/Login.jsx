@@ -31,7 +31,7 @@ const Login = () => {
         );
         let res = await responce.json();
         if(res.STATUS === true){
-          navigate("/banner")
+          navigate("/")
           console.log(res);
         }else {
           alert("email and password is incorrect")

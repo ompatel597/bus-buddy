@@ -38,7 +38,7 @@ const ResetPass = () => {
           if (res.STATUS === true) {
           
             
-            navigate("/banner");
+            navigate("/");
           } else {
             alert("error")
           }

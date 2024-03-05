@@ -7,7 +7,7 @@ import seat_icon from "../../../assets/icon_seat.svg";
 import { useSearchParams } from "react-router-dom";
 
 
- 
+
 
 
 const initialValues = {
@@ -21,7 +21,7 @@ const BusList = () => {
   const [bus, setBus] = useState();
 
   const [seats, setSeats] = useState();
- 
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const startpara = searchParams.get("start");
@@ -30,7 +30,7 @@ const BusList = () => {
 
 
 
-   
+
   const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: async (values, action) => {
@@ -71,6 +71,9 @@ const BusList = () => {
     getData();
   }, []);
 
+
+  const [showSeat, setShowSeat] = useState(false);
+
   //Bus Seats API
 
   useEffect(() => {
@@ -97,8 +100,8 @@ const BusList = () => {
     getData();
   }, []);
 
- 
- 
+
+
 
   return (
     <>
@@ -164,7 +167,7 @@ const BusList = () => {
                   height="12"
                   fill="none"
                 >
-                  <g clip-path="url(#star_svg__a)">
+                  <g clipPath="url(#star_svg__a)">
                     <path
                       fill="#fff"
                       d="M6.5 8.636 8.573 9.89c.38.23.845-.11.745-.54l-.55-2.36 1.835-1.59a.499.499 0 0 0-.285-.875L7.904 4.32 6.96 2.09a.5.5 0 0 0-.92 0l-.945 2.225-2.415.205a.499.499 0 0 0-.285.875l1.835 1.59-.55 2.36c-.1.43.365.77.745.54z"
@@ -192,7 +195,9 @@ const BusList = () => {
                 <span>from</span> ₹{e.price}
               </p>
               <div className="selectSeatBtn">
-                <button>Select seat</button>
+                <button onClick={() => {
+                  setShowSeat(!showSeat)
+                }}>Select seat</button>
                 <span>{e.AvSeats} seats available</span>
               </div>
             </div>
@@ -201,7 +206,7 @@ const BusList = () => {
           <div className="showBusLower"></div>
 
           {/* Bus seats */}
-          <div className="bus-seats">
+          {showSeat && <div className="bus-seats">
             <table>
               <tbody>
                 {/* Seat */}
@@ -210,9 +215,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -221,9 +226,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -232,9 +237,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -243,9 +248,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -254,9 +259,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -265,9 +270,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -276,9 +281,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -287,9 +292,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -298,9 +303,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -309,9 +314,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -322,9 +327,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -333,9 +338,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -344,9 +349,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -355,9 +360,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -366,9 +371,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -377,9 +382,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -388,9 +393,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -399,9 +404,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -410,9 +415,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -421,9 +426,9 @@ const BusList = () => {
                     <div className="seat-wrapper">
                       <button className="seat">
                         <svg width="64" height="30" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
-<rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
-</svg>
+                          <rect x="0.5" y="0.5" width="59" height="29" rx="3.5" fill="white" stroke="#BDBDBD"></rect>
+                          <rect x="56.5" y="5.5" width="3" height="19" rx="1.5" fill="white" stroke="#BDBDBD"></rect>
+                        </svg>
                         <span></span>
                       </button>
                     </div>
@@ -550,17 +555,18 @@ const BusList = () => {
                 </tr>
               </tbody>
             </table>
-          </div>
-          <table>
-            <tr>
-            {seats?.seats?.map((e, j) => (
-                    <td key={j}>{e.seatNo}</td>
-                  ))}
-            </tr>
-          
+            <table>
+              <tr>
+                {seats?.seats?.map((e, j) => (
+                  <td key={j}>{e.seatNo}</td>
+                ))}
+              </tr>
 
-          </table>
-          
+
+            </table>
+          </div>}
+
+
         </div>
       ))}
     </>
@@ -568,3 +574,5 @@ const BusList = () => {
 };
 
 export default BusList;
+
+

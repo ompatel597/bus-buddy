@@ -180,12 +180,20 @@
   }
 
   .bus-seats{
-    display: flex;
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(10,1fr);
+  gap: 10px;
+
+  .seat{
+    position: relative;
+    cursor: pointer;
+    .seatNumber{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
   }
 
-  .bus-seats table:nth-child(11){
-    background-color: red;
-         
-   
-  }
+ 

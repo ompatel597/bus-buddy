@@ -261,7 +261,7 @@ const BusList = () => {
                       <td>
                         <div className="seat-wrapper">
                           <button className="seat">
-                            {s.seatNo}
+                            <div className="seatNumber">{s.seatNo}</div>
                             <svg
                               width="64"
                               height="30"

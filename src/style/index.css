@@ -758,10 +758,17 @@ hr {
 }
 
 .bus-seats {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
 }
-
-.bus-seats table:nth-child(11) {
-  background-color: red;
+.bus-seats .seat {
+  position: relative;
+  cursor: pointer;
+}
+.bus-seats .seat .seatNumber {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }/*# sourceMappingURL=index.css.map */

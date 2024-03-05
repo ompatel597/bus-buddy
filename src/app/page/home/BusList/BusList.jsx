@@ -554,17 +554,6 @@ const BusList = () => {
               </tbody>
             </table>
           </div>
-          <table>
-            <tr>
-            {seats?.seats?.map((e, j) => (
-                    <td key={j}>{e.seatNo}</td>
-                  ))}
-                  
-            </tr>
-          
-
-          </table>
-          
         </div>
       ))}
     </>

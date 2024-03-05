@@ -11,6 +11,7 @@ import { date } from "yup";
 import { Await, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useFormik } from "formik";
+import { useSearchParams } from "react-router-dom";
 
 const initialValues = {
   start: "",
@@ -22,11 +23,12 @@ const Banner = () => {
   const [user, setUser] = useState();
   const navigate = useNavigate()
 
+
   
   const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: async (values, action) => {
-     navigate(`/buslist?start=${values.start}&end=${values.end}&start_date=${values.date}`)
+     navigate(`/buslist?start=${values.start}&end=${values.end}&date=${values.date}`)
     },
   });
 

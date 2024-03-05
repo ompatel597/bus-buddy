@@ -4,6 +4,11 @@ import banner_svg from "../../../assets/banner.svg";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import seat_icon from "../../../assets/icon_seat.svg";
+import { useSearchParams } from "react-router-dom";
+
+
+ 
+
 
 const initialValues = {
   start: "",
@@ -15,6 +20,17 @@ const BusList = () => {
   const [user, setUser] = useState();
   const [bus, setBus] = useState();
 
+  const [seats, setSeats] = useState();
+ 
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const startpara = searchParams.get("start");
+  const endpara = searchParams.get("end");
+  const datepara = searchParams.get("date");
+
+
+
+   
   const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: async (values, action) => {
@@ -55,6 +71,35 @@ const BusList = () => {
     getData();
   }, []);
 
+  //Bus Seats API
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await fetch(
+          "https://busbooking.bestdevelopmentteam.com/Api/setas.php",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              bus_id: 24,
+              date: "2024/03/04",
+            }),
+          }
+        );
+        const setrep = await res.json();
+        setSeats(setrep);
+        console.log(setrep);
+      } catch {
+        console.log("seat error");
+      }
+    }
+    getData();
+  }, []);
+
+ 
+ 
+
   return (
     <>
       <div className="main-buslist">
@@ -73,6 +118,7 @@ const BusList = () => {
                     <option key={j}>{e.name}</option>
                   ))}
                 </select>
+
               </div>
               <div className="source-ending">
                 <label htmlFor="destination">DESTINATION</label>
@@ -505,6 +551,17 @@ const BusList = () => {
               </tbody>
             </table>
           </div>
+          <table>
+            <tr>
+            {seats?.seats?.map((e, j) => (
+                    <td key={j}>{e.seatNo}</td>
+                  ))}
+                  
+            </tr>
+          
+
+          </table>
+          
         </div>
       ))}
     </>

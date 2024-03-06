@@ -56,7 +56,7 @@ const Banner = () => {
         <Header />
         <div className="banner_div">
           <div className="banner_text">
-            <h1>Find cheap bus tickets for your next trip</h1>
+            <h1>Find cheap bus tickets <br />for your next trip</h1>
             <p>Easily compare and book your next trip with Busbud</p>
           </div>
 

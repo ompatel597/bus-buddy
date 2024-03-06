@@ -56,7 +56,7 @@ const OtpVerify = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container borderop">
         <h1>OTP Code Verification</h1>
         <form onSubmit={handleSubmit}>
           <label>Enter the OTP code sent to your mail:</label>
@@ -67,6 +67,7 @@ const OtpVerify = () => {
             onChange={handleChange}
             name="otpCode"
             maxLength={4}
+            placeholder="Enter OTP"
           />
           <button type="submit">Verify OTP Code</button>
         </form>

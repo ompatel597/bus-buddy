@@ -38,7 +38,7 @@ const ResetPass = () => {
           if (res.STATUS === true) {
           
             
-            navigate("/");
+            navigate("/login");
           } else {
             alert("error")
           }
@@ -54,21 +54,12 @@ const ResetPass = () => {
 
   return (
     <>
-      <div className="container">
-        <h1>OTP Code Verification</h1>
+      <div className="container borderop">
+        <h1>Enter your new password below</h1>
         <form onSubmit={handleSubmit}>
         <label >Enter the OTP code sent to your mail:</label>
 
-        <label htmlFor="email">Email :</label>
-            <input
-              type="email"
-              id="email"
-              value={values.email}
-              onBlur={handleBlur}
-              onChange={handleChange}
-              name="email"
-              placeholder="Enter your email"
-            /> <br />
+        
           <input
                   type="password"
                   value={values.pass}
@@ -78,6 +69,11 @@ const ResetPass = () => {
                   placeholder="Create Password"
                   onChange={handleChange}
                 />
+                <input type="password" name="conpass" id="" 
+                autoComplete="off"
+                placeholder="Confirm password"
+                />
+
           <button type="submit" >Create pass</button>
         </form>
       </div>

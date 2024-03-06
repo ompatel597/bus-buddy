@@ -21,3 +21,14 @@ form {
     border-radius: 6px;
     box-shadow: 0
   }
+
+  .hideborder {
+    margin: auto;
+  margin-top: 200px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+
+  padding: 20px;
+  }

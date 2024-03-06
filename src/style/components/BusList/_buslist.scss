@@ -188,11 +188,35 @@
   .seat{
     position: relative;
     cursor: pointer;
+    
     .seatNumber{
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+    }
+
+    svg{
+      fill: white;
+      stroke:black;
+      
+    }
+
+    &:hover svg{
+      fill: gray;
+      stroke:green;
+
+    }
+    &.active{
+      color: white;
+    }
+    &.active svg{
+      fill: green;
+      
+    }
+    &.disable{
+      pointer-events: none;
+      opacity: 0.5;
     }
   }
   }

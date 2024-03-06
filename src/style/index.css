@@ -797,4 +797,22 @@ hr {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+.bus-seats .seat svg {
+  fill: white;
+  stroke: black;
+}
+.bus-seats .seat:hover svg {
+  fill: gray;
+  stroke: green;
+}
+.bus-seats .seat.active {
+  color: white;
+}
+.bus-seats .seat.active svg {
+  fill: green;
+}
+.bus-seats .seat.disable {
+  pointer-events: none;
+  opacity: 0.5;
 }/*# sourceMappingURL=index.css.map */

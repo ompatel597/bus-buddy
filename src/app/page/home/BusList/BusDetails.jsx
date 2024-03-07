@@ -20,7 +20,7 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
         console.log(s.seatNo)
       }
       else{
-        toast.error("You can select upto 5 seats only");
+        toast.error("You can select upto 6 seats only");
 
       }
       

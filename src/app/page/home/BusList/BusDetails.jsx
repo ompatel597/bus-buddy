@@ -92,10 +92,10 @@ const BusDetails = ({e ,r ,seats ,datepara ,sendDataToBackend}) => {
                   <div className="seat-wrapper">
                     
                     <button className={`seat ${s.BookedStatus === true && "disable"} ${selectedSheets.some(f=>f.seatNo ===  s.seatNo) && "active"}`} onClick={()=>selectSheet(s)}>
-                      <div className="seatNumber">{s.seatNo},{s.BookedStatus? "true" : "false"}</div>
+                      <div className="seatNumber">{s.seatNo}</div>
                       <svg
                         width="64"
-                        height="30"
+                        height="30" 
                         viewBox="0 0 60 30"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"

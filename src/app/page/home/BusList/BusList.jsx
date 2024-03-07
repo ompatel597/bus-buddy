@@ -196,7 +196,7 @@ const BusList = () => {
       </div>
 
       {bus?.data?.map((e, r) => (
-        <BusDetails e={e} r={r} seats={seats} datepara={datepara} sendDataToBackend={sendDataToBackend}  />
+        <BusDetails e={e} r={r} seats={seats} datepara={datepara} sendDataToBackend={sendDataToBackend} startpara={startpara} endpara={endpara}  />
       ))}
 
       

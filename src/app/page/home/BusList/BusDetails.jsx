@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-const BusDetails = ({ e, r, seats, datepara, sendDataToBackend }) => {
+const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpara }) => {
   const [showSeat, setShowSeat] = useState(false);
   const [selectedSheets, setSelectedSheets] = useState([])
 
@@ -140,11 +140,13 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend }) => {
              <ul className="distancePoint">
                <li>
                  <div className="time">{e.DeptTime}</div>
-                 <p> {e.depaturestops}</p>
+                 <p> {startpara}</p>
+                 
+                 
                </li>
                <li>
                  <div className="time">{e.ArrivalTime}</div>
-                 <p>{e.Arrivalstops}</p>
+                 <p>{endpara}</p>
                </li>
              </ul>
              <hr />

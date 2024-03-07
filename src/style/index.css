@@ -820,6 +820,86 @@ hr {
   fill: grey;
 }
 
+.showSelectedSeatDetails {
+  margin-top: 50px;
+  background: #eaf6ff;
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+.showSelectedSeatDetails .distancePoint {
+  margin-top: 2rem;
+  position: relative;
+}
+.showSelectedSeatDetails .distancePoint li {
+  padding-bottom: 1.5rem;
+  border-left: 2px dotted #abaaed;
+  position: relative;
+  padding-left: 20px;
+  margin-left: 10px;
+}
+.showSelectedSeatDetails .distancePoint li:last-child {
+  border: 0px;
+  padding-bottom: 0;
+}
+.showSelectedSeatDetails .distancePoint li:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: white;
+  border: 1px solid #4e5ed3;
+  box-shadow: 3px 3px 0px #bab5f8;
+  box-shadow: 3px 3px 0px #bab5f8;
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+  top: 0px;
+}
+.showSelectedSeatDetails .distancePoint li .time {
+  color: #2a2839;
+  font-weight: 500;
+}
+.showSelectedSeatDetails .distancePoint li p {
+  color: #4f4f4f;
+  line-height: 1.5;
+  margin-top: 0.4rem;
+}
+.showSelectedSeatDetails .showSeatNo {
+  display: flex;
+  justify-content: space-between;
+}
+.showSelectedSeatDetails .showSeatNo span {
+  font-weight: 600;
+}
+.showSelectedSeatDetails .fareDetails h5 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.showSelectedSeatDetails .fareDetails .amountDiv {
+  display: flex;
+  justify-content: space-between;
+}
+.showSelectedSeatDetails .fareDetails .amountDiv .amountLeft span {
+  font-weight: 500;
+}
+.showSelectedSeatDetails .fareDetails .amountDiv .amountLeft p {
+  font-size: 12px;
+}
+.showSelectedSeatDetails .fareDetails .amountDiv .amountRight span {
+  font-size: 16px;
+  font-weight: 600;
+}
+.showSelectedSeatDetails button {
+  margin-top: 25px;
+  border: none;
+  background-color: #d84e55;
+  color: white;
+  width: 100%;
+  min-height: 40px;
+  font-size: 16px;
+}
+
 .cusinfo {
   height: 100vh;
   background: #fff;

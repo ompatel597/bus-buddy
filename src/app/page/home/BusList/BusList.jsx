@@ -44,6 +44,7 @@ const BusList = () => {
         );
         let ress = await responce.json();
         setBus(ress);
+        console.log(ress)
       } catch (error) {
         console.log(error);
       }
@@ -70,7 +71,7 @@ const BusList = () => {
     handleSubmit();
   }, [startpara, endpara, datepara]);
 
- 
+
 
   //Bus Seats API
 
@@ -116,13 +117,13 @@ const BusList = () => {
 
       );
       const setrep = await response.json();
-        setSeats(setrep);
+      setSeats(setrep);
     } catch (error) {
       console.log("Error sending data", error);
     }
   };
 
-   
+
 
   return (
     <>
@@ -195,8 +196,10 @@ const BusList = () => {
       </div>
 
       {bus?.data?.map((e, r) => (
-        <BusDetails e={e} r={r} seats={seats} datepara={datepara} sendDataToBackend={sendDataToBackend}/>
+        <BusDetails e={e} r={r} seats={seats} datepara={datepara} sendDataToBackend={sendDataToBackend}  />
       ))}
+
+      
     </>
   );
 };

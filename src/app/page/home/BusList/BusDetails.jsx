@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 
 const BusDetails = ({e ,r ,seats ,datepara ,sendDataToBackend}) => {
-    const [showSeat, setShowSeat] = useState(true);
+    const [showSeat, setShowSeat] = useState(false);
     const [selectedSheets, setSelectedSheets] = useState([])
 
    

@@ -203,7 +203,7 @@
     }
 
     &:hover svg{
-      fill: gray;
+      fill: rgb(221, 201, 163);
       stroke:green;
 
     }
@@ -214,9 +214,13 @@
       fill: green;
       
     }
-    &.disable{
+    &.disable {
       pointer-events: none;
       opacity: 0.5;
+      svg{
+        fill: grey;
+      }
+      
     }
   }
   }

@@ -803,7 +803,7 @@ hr {
   stroke: black;
 }
 .bus-seats .seat:hover svg {
-  fill: gray;
+  fill: rgb(221, 201, 163);
   stroke: green;
 }
 .bus-seats .seat.active {
@@ -815,4 +815,7 @@ hr {
 .bus-seats .seat.disable {
   pointer-events: none;
   opacity: 0.5;
+}
+.bus-seats .seat.disable svg {
+  fill: grey;
 }/*# sourceMappingURL=index.css.map */

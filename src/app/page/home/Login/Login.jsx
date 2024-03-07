@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import user_icon from "../../../../app/assets/person.png";
 import pass_icon from "../../../../app/assets/password.png";
 import People_waiting from "../../../../app/assets/Peoplewaiting.webp"
+import { toast } from 'react-toastify';
 
 import email_icon from "../../../../app/assets/email.png";
 import bus_img from "../../../../app/assets/signupImg.png";
@@ -36,7 +37,7 @@ const Login = () => {
           navigate("/")
           console.log(res);
         }else {
-          alert("email and password is incorrect")
+          toast.error("email and password is incorrect")
 
         }
       } catch (error) {

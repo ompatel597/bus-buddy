@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
+import { toast } from 'react-toastify';
 import {
   useLocation,
   useNavigate,
@@ -40,9 +41,10 @@ const OtpVerify = () => {
           let res = await responce.json();
           if (res.STATUS === true) {
             console.log(res);
-
+              toast.success("Valid OTP")
             navigate(`/resetpass?email=${resetEmail}`);
           } else {
+            toast.error("invalid OTP")
             console.log(res);
           }
           setloading(false);

@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
+import { toast } from 'react-toastify';
 import { Link, useNavigate } from "react-router-dom";
 
 const initialValues = {
@@ -28,6 +29,7 @@ const ForgetPass = () => {
           let res = await responce.json();
           console.log(res);
           if (res.STATUS === true) {
+            toast.success("OTP sent")
             navigate(`/otpverify?email=${values.email}`);
           } else {
             console.log(res);

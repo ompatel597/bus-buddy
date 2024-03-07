@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpara }) => {
   const [showSeat, setShowSeat] = useState(false);
@@ -9,12 +10,20 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
 
   const selectSheet = (s) => {
     const findExisting = selectedSheets.some(f => f.seatNo === s.seatNo)
-    if (findExisting) {
+    if (findExisting ) {
       const removePreSelectedData = selectedSheets.filter(f => f.seatNo !== s.seatNo)
       setSelectedSheets(removePreSelectedData)
     } else {
+      
+      if(selectedSheets.length<5){
+        setSelectedSheets((pre) => [...pre, s])
+        console.log(s.seatNo)
+      }
+      else{
+        toast.error("You can select upto 5 seats only");
 
-      setSelectedSheets((pre) => [...pre, s])
+      }
+      
     }
   }
   return (
@@ -133,6 +142,7 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
                 </table>
               ))}
             </div>
+      
              <div className="showSelectedSeatDetails">
 
              <h3>Boarding & Dropping</h3>
@@ -152,8 +162,11 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
              <hr />
    
              <div className="showSeatNo">
-               <span>Seat No.</span>
-               <span>S9 , S12</span>
+              
+               <span>Seat No. </span>
+               <span>{selectedSheets.map((e)=>{
+                return `( ${e.seatNo} ) `
+               })}</span>
              </div>
              <hr />
              <div className="fareDetails">
@@ -164,7 +177,7 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
                    <p>Taxes will be calculated during payment</p>
                  </div>
                  <div className="amountRight">
-                   <span>INR {e.price}</span>
+                   <span>INR {e.price*(selectedSheets.length)}</span>
                  </div>
                </div>
              </div>

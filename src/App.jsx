@@ -33,7 +33,7 @@ const App = () => {
         <Route path="/otpverify" element={<OtpVerify />} />
         <Route path="/resetpass" element={<ResetPass />} />
         <Route path="/buslist" element={<BusList />} />
-        <Route path="/passDe" element={<PassDetails />} />
+        <Route path="/passDetails" element={<PassDetails />} />
         
         
 

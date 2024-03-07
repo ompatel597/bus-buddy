@@ -909,8 +909,7 @@ hr {
   opacity: 1;
   top: 0;
   right: 0;
-  width: 40%;
-  z-index: 10001;
+  width: 100%;
   transition: all 0.5s ease-in;
   box-shadow: -5px 0 5px -3px #949393;
   padding: 20px;

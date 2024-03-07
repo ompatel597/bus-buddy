@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpara }) => {
+  const vnavigaterp = useNavigate()
   const [showSeat, setShowSeat] = useState(false);
   const [selectedSheets, setSelectedSheets] = useState([])
 
@@ -20,7 +22,7 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
         console.log(s.seatNo)
       }
       else{
-        toast.error("You can select upto 6 seats only");
+        toast.error("You can select upto 5 seats only");
 
       }
       
@@ -181,7 +183,13 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
                  </div>
                </div>
              </div>
-             <button>PROCEED TO BOOK</button>
+             <button onClick={()=>{
+              if (selectedSheets.length>=1) {
+                vnavigaterp("/passDetails")
+              } else {
+                
+              }
+             }}>PROCEED TO BOOK</button>
            </div>
            </>
           )}

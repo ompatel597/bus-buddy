@@ -818,4 +818,110 @@ hr {
 }
 .bus-seats .seat.disable svg {
   fill: grey;
+}
+
+.cusinfo {
+  height: 100vh;
+  background: #fff;
+  color: #4a4a4a;
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  right: 0;
+  width: 40%;
+  z-index: 10001;
+  transition: all 0.5s ease-in;
+  box-shadow: -5px 0 5px -3px #949393;
+  padding: 20px;
+}
+.cusinfo .cinfo-header {
+  display: flex;
+  text-align: center;
+  font-size: 19px;
+  padding-bottom: 15px;
+}
+.cusinfo .cinfo-container .passenger-info-title {
+  display: flex;
+  padding: 0.5em;
+  align-items: center;
+  gap: 15px;
+}
+.cusinfo .cinfo-container .passenger-info-block {
+  box-shadow: 0 0 4px 0 hsla(0, 0%, 64%, 0.5);
+  padding: 1em 1em 0.5em;
+  background: #fff;
+  margin-bottom: 0.5em;
+  position: relative;
+}
+.cusinfo .cinfo-container .passenger-info-block .passenger-subtitle {
+  display: flex;
+  gap: 20px;
+}
+.cusinfo .cinfo-container .passenger-info-block .passenger-contact-container .passenger-name {
+  margin-top: 15px;
+  display: block;
+}
+.cusinfo .cinfo-container .passenger-info-block .passenger-contact-container .passenger-name input {
+  width: 100%;
+  background: #fff;
+  padding: 0.5em;
+  border-radius: 3px;
+  border: 1px solid #bababa;
+  outline: none;
+  font-size: 14px;
+  margin: 0.8em 0 0;
+  color: rgba(74, 74, 74, 0.86) !important;
+}
+.cusinfo .cinfo-container .passenger-info-block .passenger-contact-container .passenger-gender {
+  margin-top: 15px;
+  display: flex;
+  font-size: 0.875em;
+  color: rgba(74, 74, 74, 0.86);
+}
+.cusinfo .cinfo-container .passenger-info-block .passenger-contact-container .passenger-gender span {
+  margin-top: 12px;
+  font-size: 16px;
+}
+.cusinfo .cinfo-container .passenger-info-block .passenger-contact-container .passenger-gender .gender-radio {
+  display: flex;
+  padding: 0.5em;
+  align-items: center;
+  gap: 7px;
+  justify-content: center;
+}
+.cusinfo .cinfo-container .passenger-info-block .passenger-contact-container .passenger-age {
+  margin-top: 15px;
+  display: block;
+}
+.cusinfo .cinfo-container .passenger-info-block .passenger-contact-container .passenger-age .age-input {
+  width: 20%;
+  background: #fff;
+  padding: 0.5em;
+  border-radius: 3px;
+  border: 1px solid #bababa;
+  outline: none;
+  font-size: 14px;
+  margin: 0.8em 0 0;
+  color: rgba(74, 74, 74, 0.86) !important;
+}
+.cusinfo .cinfo-container .proceed-to-pay-btn {
+  display: inline-block;
+  padding: 6px 16px 7px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 400;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition: 0.1s;
+  border: none;
+  text-align: center;
+  background-color: #d84e55;
+  color: #fff;
+}
+
+.btnhide {
+  position: absolute;
+  width: 10%;
+  right: 0;
 }/*# sourceMappingURL=index.css.map */

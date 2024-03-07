@@ -16,6 +16,9 @@ import ForgetPass from "./app/page/home/ForgetPass/ForgetPass.jsx";
 import Signup from "./app/page/home/Signup/Signup.jsx";
 import Login from "./app/page/home/Login/Login.jsx";
 import Error from "./app/page/home/Error.jsx";
+import PassDetails from "./app/Components/PassDetails/PassDetails.jsx";
+
+
 
 const App = () => {
   return (
@@ -30,6 +33,9 @@ const App = () => {
         <Route path="/otpverify" element={<OtpVerify />} />
         <Route path="/resetpass" element={<ResetPass />} />
         <Route path="/buslist" element={<BusList />} />
+        <Route path="/passDe" element={<PassDetails />} />
+        
+        
 
 
         <Route path="*" element={<Error />} />

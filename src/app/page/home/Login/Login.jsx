@@ -7,6 +7,7 @@ import email_icon from "../../../../app/assets/email.png";
 import bus_img from "../../../../app/assets/signupImg.png";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
+import { LoginSchema} from "../../../Schemas";
 
 const initialValues = {
   email: "",
@@ -15,8 +16,9 @@ const initialValues = {
 
 const Login = () => {
   const navigate = useNavigate()
-  const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
+  const { values, errors, handleBlur, touched , handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
+    validationSchema: LoginSchema,
     onSubmit: async (values, action) => {
       try {
         const responce = await fetch("https://busbooking.bestdevelopmentteam.com/Api/user_login.php",
@@ -67,6 +69,7 @@ const Login = () => {
                   onChange={handleChange}
                 />
               </div>
+              { errors.email && touched.email ?( <p className="form-error"> {errors.email} </p> ): null}
               <div className="input">
                 <img src={pass_icon} alt="" />
                 <input
@@ -79,6 +82,7 @@ const Login = () => {
                   onChange={handleChange}
                 />
               </div>
+              { errors.pass && touched.pass ?( <p className="form-error"> {errors.pass} </p> ): null}
               <div className="forget-pass">
                 Forget password? <span> <Link to="/forgetpass" className='Routes-link'>Click Here!</Link></span>
               </div>

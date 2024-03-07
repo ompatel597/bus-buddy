@@ -12,3 +12,11 @@ export const signUpSchema = Yup.object({
     .required("enter your password again")
     .oneOf([Yup.ref("pass"), null], "Password must match"),
 });
+
+export const LoginSchema = Yup.object({
+  email: Yup.string().email().required("Please enter your email"),
+  pass: Yup.string().required("Please enter your password"),
+  
+});
+
+

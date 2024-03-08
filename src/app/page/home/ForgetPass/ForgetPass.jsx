@@ -27,19 +27,19 @@ const ForgetPass = () => {
             }
           );
           let res = await responce.json();
-          console.log(res);
           if (res.STATUS === true) {
             toast.success("OTP sent")
             navigate(`/otpverify?email=${values.email}`);
+            action.resetForm();
           } else {
-            console.log(res);
+            toast.error("Invalid email")
           }
           setloading(false);
         } catch (e) {
           console.log(e);
           setloading(false);
         }
-        action.resetForm();
+        
       },
     });
 

@@ -6,6 +6,7 @@ import {
   useParams,
   useSearchParams,
 } from "react-router-dom";
+import { ResetPassSchema } from "../../Schemas";
 
 const initialValues = {
   email:"",
@@ -20,6 +21,7 @@ const ResetPass = () => {
   const { values, errors, handleBlur, handleChange, touched, handleSubmit  } =
     useFormik({
       initialValues: initialValues,
+      validationSchema: ResetPassSchema,
       onSubmit: async (values, action) => {
         try {
           const responce = await fetch(
@@ -69,12 +71,14 @@ const ResetPass = () => {
                   placeholder="Create Password"
                   onChange={handleChange}
                 />
+                { errors.pass && touched.pass ?( <p className="form-error"> {errors.pass} </p> ): null}
+
                 <input type="password" name="conpass" id="" 
                 autoComplete="off"
                 placeholder="Confirm password"
                 />
 
-          <button type="submit" >Create pass</button>
+          <button type="submit" >Create password</button>
         </form>
       </div>
     </>

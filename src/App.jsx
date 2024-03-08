@@ -7,6 +7,7 @@ import Footer from "./app/Components/Footer/Footer.jsx";
 import OtpVerify from "./app/Components/OtpVerify/OtpVerify.jsx";
 import ResetPass from "./app/Components/ResetPass/ResetPass.jsx";
 import TopTravelled from "./app/page/home/Banner/TopTravelled.jsx";
+import Payment from "./app/Components/Payment/Payment.jsx";
 
 //Page-home
 import Banner from "./app/page/home/Banner/Banner.jsx";
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/resetpass" element={<ResetPass />} />
         <Route path="/buslist" element={<BusList />} />
         <Route path="/passDetails" element={<PassDetails />} />
+        <Route path="/payment" element={<Payment />} />
         
         
 

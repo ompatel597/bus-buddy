@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import seat_icon from "../../../assets/icon_seat.svg";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import BusDetails from "./BusDetails";
+import { toast } from 'react-toastify';
 
 const initialValues = {
   start: "",
@@ -42,9 +43,12 @@ const BusList = () => {
             }),
           }
         );
+            
         let ress = await responce.json();
         setBus(ress);
-        console.log(ress)
+        if (ress.status === false) {
+          toast.error("Bus not found")
+        }
       } catch (error) {
         console.log(error);
       }
@@ -73,31 +77,6 @@ const BusList = () => {
 
 
 
-  //Bus Seats API
-
-  // useEffect(() => {
-  //   async function getSeatData(busId, date) {
-  //     try {
-  //       const res = await fetch(
-  //         "https://busbooking.bestdevelopmentteam.com/Api/setas.php",
-  //         {
-  //           method: "POST",
-  //           headers: { "Content-Type": "application/json" },
-  //           body: JSON.stringify({
-  //             bus_id: 24,
-  //             date: datepara,
-  //           }),
-  //         }
-  //       );
-  //       const setrep = await res.json();
-  //       setSeats(setrep);
-  //       console.log(setrep);
-  //     } catch {
-  //       console.log("seat error");
-  //     }
-  //   }
-  //   getSeatData();
-  // }, []);
 
   /// bus id and date
   const sendDataToBackend = async (busId, date) => {
@@ -108,8 +87,8 @@ const BusList = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            bus_id: 24,
-            date: "2024/03/18",
+            bus_id: busId,
+            date: datepara,
           }),
         },
         // alert(busId),

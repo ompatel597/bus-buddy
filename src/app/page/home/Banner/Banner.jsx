@@ -6,6 +6,7 @@ import icon2 from "../../../assets/icon2.svg";
 import icon3 from "../../../assets/icon3.svg";
 import TopTravelled from "./TopTravelled";
 import axios from "axios";
+import { toast } from 'react-toastify';
 import moment from "moment";
 import { date } from "yup";
 import { Await, useNavigate } from "react-router-dom";
@@ -19,7 +20,7 @@ const initialValues = {
   date: "",
 };
 
-const Banner = () => {
+const   Banner = () => {
   const [user, setUser] = useState();
   const navigate = useNavigate()
 
@@ -28,7 +29,12 @@ const Banner = () => {
   const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: async (values, action) => {
-     navigate(`/buslist?start=${values.start}&end=${values.end}&date=${values.date}`)
+      if (values.start != values.end) {
+        navigate(`/buslist?start=${values.start}&end=${values.end}&date=${values.date}`)
+      } else {
+        toast.warning("Please select different stops")
+      }
+     
     },
   });
 
@@ -42,7 +48,7 @@ const Banner = () => {
         const responce = await res.json();
         setUser(responce);
       } catch {
-        console.log("errr");
+        toast.error("Stops error !");
       }
     }
     getData();

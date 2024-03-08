@@ -1,11 +1,7 @@
 .cusinfo {
-  height: 100vh;
   background: #fff;
   color: #4a4a4a;
-  position: fixed;
   opacity: 1;
-  top: 0;
-  right: 0;
   width: 100%;
   transition: all 0.5s ease-in;
   box-shadow: -5px 0 5px -3px #949393;
@@ -33,6 +29,9 @@
       background: #fff;
       margin-bottom: 0.5em;
       position: relative;
+      margin-bottom: 25px;
+      margin-top: 0;
+      
 
       .passenger-subtitle {
         display: flex;
@@ -69,7 +68,6 @@
 
           .gender-radio {
             display: flex;
-
             padding: 0.5em;
             align-items: center;
             gap: 7px;
@@ -82,7 +80,7 @@
           display: block;
 
           .age-input {
-            width: 20%;
+            width: 4%;
             background: #fff;
             padding: 0.5em;
             border-radius: 3px;
@@ -95,9 +93,13 @@
         }
       }
     }
-    .proceed-to-pay-btn {
+    
+  }
+  .proceed-to-pay-btn {
       display: inline-block;
-      padding: 6px 16px 7px;
+      margin-top: 10px;
+      width: 20%;
+      padding: 10px 16px 10px;
       text-transform: uppercase;
       font-size: 13px;
       font-weight: 400;
@@ -110,11 +112,4 @@
       background-color: #d84e55;
       color: #fff;
     }
-  }
-}
-
-.btnhide{
-    position: absolute;
-    width: 10%;
-    right: 0;
 }

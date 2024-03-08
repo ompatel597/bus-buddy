@@ -1,40 +1,41 @@
-import React from 'react'
-import { useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import React from "react";
+import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpara }) => {
-  const vnavigaterp = useNavigate()
+const BusDetails = ({
+  e,
+  r,
+  seats,
+  datepara,
+  sendDataToBackend,
+  startpara,
+  endpara,
+}) => {
+
+  const vnavigaterp = useNavigate();
   const [showSeat, setShowSeat] = useState(false);
-  const [selectedSheets, setSelectedSheets] = useState([])
-
-
+  const [selectedSheets, setSelectedSheets] = useState([]);
 
   const selectSheet = (s) => {
-    const findExisting = selectedSheets.some(f => f.seatNo === s.seatNo)
-    if (findExisting ) {
-      const removePreSelectedData = selectedSheets.filter(f => f.seatNo !== s.seatNo)
-      setSelectedSheets(removePreSelectedData)
+    const findExisting = selectedSheets.some((f) => f.seatNo === s.seatNo);
+    if (findExisting) {
+      const removePreSelectedData = selectedSheets.filter(
+        (f) => f.seatNo !== s.seatNo
+      );
+      setSelectedSheets(removePreSelectedData);
     } else {
-      
-      if(selectedSheets.length<5){
-        setSelectedSheets((pre) => [...pre, s])
-        console.log(s.seatNo)
-      }
-      else{
+      if (selectedSheets.length < 5) {
+        setSelectedSheets((pre) => [...pre, s]);
+       
+      } else {
         toast.error("You can select upto 5 seats only");
-
       }
-      
     }
-  }
+  };
   return (
     <>
-
       <div className="showBusDetailSection">
-       
-
-
         <div className="showBusDetail" key={r}>
           <div className="showBusHeader">
             <div className="showBusName">
@@ -97,109 +98,117 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
           <div className="showBusLower"></div>
 
           {/* Bus seats */}
-          {showSeat && (<>
-            <div className="bus-seats">
-              {seats?.seats?.map((s, k) => (
-                <table key={k}>
-                  <tbody>
-                    {/* Seat */}
-                    <tr className="first-seats-row hiddentBtn">
-                      <td>
-
-                        <div className="seat-wrapper">
-
-                          <button className={`seat ${s.BookedStatus === true && "disable"} ${selectedSheets.some(f => f.seatNo === s.seatNo) && "active"}`} onClick={() => selectSheet(s)}>
-                            <div className="seatNumber">{s.seatNo}</div>
-                            <svg
-                              width="64"
-                              height="30"
-                              viewBox="0 0 60 30"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-
+          {showSeat && (
+            <>
+              <div className="bus-seats">
+                {seats?.seats?.map((s, k) => (
+                  <table key={k}>
+                    <tbody>
+                      {/* Seat */}
+                      <tr className="first-seats-row hiddentBtn">
+                        <td>
+                          <div className="seat-wrapper">
+                            <button
+                              className={`seat ${
+                                s.BookedStatus === true && "disable"
+                              } ${
+                                selectedSheets.some(
+                                  (f) => f.seatNo === s.seatNo
+                                ) && "active"
+                              }`}
+                              onClick={() => selectSheet(s)}
                             >
-                              <rect
-                                x="0.5"
-                                y="0.5"
-                                width="59"
-                                height="29"
-                                rx="3.5"
+                              <div className="seatNumber">{s.seatNo}</div>
+                              <svg
+                                width="64"
+                                height="30"
+                                viewBox="0 0 60 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                  x="0.5"
+                                  y="0.5"
+                                  width="59"
+                                  height="29"
+                                  rx="3.5"
+                                ></rect>
+                                <rect
+                                  x="56.5"
+                                  y="5.5"
+                                  width="3"
+                                  height="19"
+                                  rx="1.5"
+                                ></rect>
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                ))}
+              </div>
 
+              <div className="showSelectedSeatDetails">
+                <h3>Boarding & Dropping</h3>
 
-                              ></rect>
-                              <rect
-                                x="56.5"
-                                y="5.5"
-                                width="3"
-                                height="19"
-                                rx="1.5"
+                <ul className="distancePoint">
+                  <li>
+                    <div className="time">{e.DeptTime}</div>
+                    <p> {startpara}</p>
+                  </li>
+                  <li>
+                    <div className="time">{e.ArrivalTime}</div>
+                    <p>{endpara}</p>
+                  </li>
+                </ul>
+                <hr />
 
-                              ></rect>
-                            </svg>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              ))}
-            </div>
-      
-             <div className="showSelectedSeatDetails">
-
-             <h3>Boarding & Dropping</h3>
-   
-             <ul className="distancePoint">
-               <li>
-                 <div className="time">{e.DeptTime}</div>
-                 <p> {startpara}</p>
-                 
-                 
-               </li>
-               <li>
-                 <div className="time">{e.ArrivalTime}</div>
-                 <p>{endpara}</p>
-               </li>
-             </ul>
-             <hr />
-   
-             <div className="showSeatNo">
-              
-               <span>Seat No. </span>
-               <span>{selectedSheets.map((e)=>{
-                return `( ${e.seatNo} ) `
-               })}</span>
-             </div>
-             <hr />
-             <div className="fareDetails">
-               <h5>Fare Details</h5>
-               <div className="amountDiv">
-                 <div className="amountLeft">
-                   <span>Amount</span>
-                   <p>Taxes will be calculated during payment</p>
-                 </div>
-                 <div className="amountRight">
-                   <span>INR {e.price*(selectedSheets.length)}</span>
-                 </div>
-               </div>
-             </div>
-             <button onClick={()=>{
-              if (selectedSheets.length>=1) {
-                //seatid --
-                vnavigaterp(`/passDetails?date=${datepara}&seatid=${selectedSheets.length}&busid=${e.busid}&price=${e.price*(selectedSheets.length)}&start=${startpara}&end=${endpara}`)
-              } else {
-                toast.error("please select atleast 1 seat")
-              }
-             }}>PROCEED TO BOOK</button>
-           </div>
-           </>
+                <div className="showSeatNo">
+                  <span>Seat No. </span>
+                  <span>
+                    {selectedSheets.map((e) => {
+                      return `( ${e.seatNo} ) `;
+                    })}
+                  </span>
+                </div>
+                <hr />
+                <div className="fareDetails">
+                  <h5>Fare Details</h5>
+                  <div className="amountDiv">
+                    <div className="amountLeft">
+                      <span>Amount</span>
+                      <p>Taxes will be calculated during payment</p>
+                    </div>
+                    <div className="amountRight">
+                      <span>INR {e.price * selectedSheets.length}</span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    if (selectedSheets.length >= 1) {
+                      //seatid --
+                      vnavigaterp(
+                        `/passDetails?date=${datepara}&seatid=${ JSON.stringify(selectedSheets.map(e=>({seatNo:e.seatNo})))}&busid=${e.busid}&price=${
+                          e.price * selectedSheets.length
+                        }&start=${startpara}&end=${endpara}`
+                      );
+                    } else {
+                      toast.error("please select atleast 1 seat");
+                    }
+                  }}
+                >
+                  PROCEED TO BOOK
+                </button>
+              </div>
+            </>
           )}
         </div>
-
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default BusDetails
+export default BusDetails;

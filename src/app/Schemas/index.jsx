@@ -19,4 +19,7 @@ export const LoginSchema = Yup.object({
   
 });
 
-
+export const ResetPassSchema = Yup.object({
+  pass: Yup.string().required("Please enter your password"),
+  
+});

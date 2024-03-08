@@ -7,6 +7,7 @@ import People_waiting from "../../../../app/assets/Peoplewaiting.webp"
 import phone_icon from "../../../../app/assets/phone.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import { toast } from 'react-toastify';
 import { signUpSchema } from "../../../Schemas";
 
 
@@ -39,14 +40,17 @@ const Signup = () => {
         let res = await responce.json();
         console.table(res ,"res");
         if(res.STATUS === true){
-          navigate("/login")
+          toast.success("Account created successfully")
+          // navigate("/login")
+          navigate(`/emailverify?email=${values.email}`)
+          action.resetForm();
         }else {
-        //here
+        toast.error("Email already exist")
         }
       } catch (error) {
         console.log(error);
       }
-      action.resetForm();
+      
     }
   })
   return (

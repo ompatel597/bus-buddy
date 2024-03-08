@@ -916,6 +916,7 @@ hr {
 }
 .cusinfo .cinfo-header {
   display: flex;
+  gap: 25px;
   text-align: center;
   font-size: 19px;
   padding-bottom: 15px;
@@ -924,7 +925,7 @@ hr {
   display: flex;
   padding: 0.5em;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 .cusinfo .cinfo-container .passenger-info-block {
   box-shadow: 0 0 4px 0 hsla(0, 0%, 64%, 0.5);

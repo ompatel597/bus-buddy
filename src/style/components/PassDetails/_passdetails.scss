@@ -7,13 +7,13 @@
   top: 0;
   right: 0;
   width: 100%;
-
   transition: all 0.5s ease-in;
   box-shadow: -5px 0 5px -3px #949393;
   padding: 20px;
 
   .cinfo-header {
     display: flex;
+    gap: 25px;
     text-align: center;
     font-size: 19px;
     padding-bottom: 15px;
@@ -24,7 +24,7 @@
       display: flex;
       padding: 0.5em;
       align-items: center;
-      gap: 15px;
+      gap: 10px;
     }
 
     .passenger-info-block {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpara }) => {
@@ -185,7 +185,8 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
              </div>
              <button onClick={()=>{
               if (selectedSheets.length>=1) {
-                vnavigaterp("/passDetails")
+                //seatid --
+                vnavigaterp(`/passDetails?date=${datepara}&seatid=${selectedSheets.length}&busid=${e.busid}&price=${e.price*(selectedSheets.length)}&start=${startpara}&end=${endpara}`)
               } else {
                 toast.error("please select atleast 1 seat")
               }

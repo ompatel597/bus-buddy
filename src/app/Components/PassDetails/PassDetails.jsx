@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import nextIcon from "../../../app/assets/next_cinfo_icon.png";
 import passengerIcon from "../../../app/assets/pass_user.png";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useFormik } from "formik";
 
 const PassDetails = () => {
+  const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams();
 
   const sheets = JSON.parse(searchParams.get("seatid"));
@@ -37,7 +38,9 @@ const PassDetails = () => {
 
       onSubmit: async (values) => {
         try {
-          console.log(values);
+
+          localStorage.setItem("order_details" , JSON.stringify(values))
+          navigate("/payment")
         } catch (error) {
           console.log(error);
         }
@@ -62,7 +65,7 @@ const PassDetails = () => {
 
             {/* Passenger card - no - seat  */}
             {sheets?.map((e, index, t) => (
-              <div key={t} className="passenger-info-block">
+              <div key={t} className="passenger-info-block"> 
                 <div className="passenger-subtitle">
                   <span>Passenger : {index + 1}</span>
 

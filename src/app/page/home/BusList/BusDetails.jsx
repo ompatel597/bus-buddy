@@ -187,7 +187,7 @@ const BusDetails = ({ e, r, seats, datepara, sendDataToBackend, startpara, endpa
               if (selectedSheets.length>=1) {
                 vnavigaterp("/passDetails")
               } else {
-                
+                toast.error("please select atleast 1 seat")
               }
              }}>PROCEED TO BOOK</button>
            </div>

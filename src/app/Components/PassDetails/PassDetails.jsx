@@ -8,6 +8,9 @@ const PassDetails = () => {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const cid = searchParams.get("cid");
+
+
   const sheets = JSON.parse(searchParams.get("seatid"));
 
   const busid = searchParams.get("busid");
@@ -30,7 +33,7 @@ const PassDetails = () => {
           price: price,
           start: start,
           end: end,
-          cid: 24,
+          cid: cid,
         })),
       },
 
@@ -38,7 +41,7 @@ const PassDetails = () => {
         try {
 
           localStorage.setItem("order_details" , JSON.stringify(values))
-          navigate("/payment")
+          navigate(`/payment?cid=${cid}`)
         } catch (error) {
           console.log(error);
         }

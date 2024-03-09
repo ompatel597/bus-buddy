@@ -1,9 +1,12 @@
 import React from 'react'
+import { useSearchParams } from 'react-router-dom';
 
 const Payment = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  const cidUrl = searchParams.get("cid");
+
   const get_order_details =  JSON.parse(localStorage.getItem("order_details"))
-
-
 
 
 // get_order_details.map( (r) => {
@@ -25,7 +28,7 @@ const Payment = () => {
             end: get_order_details.end,
             price: get_order_details.price,
             passenger_data: get_order_details.passenger_data,
-            cid:25
+            cid: cidUrl
           }),
         },
       );

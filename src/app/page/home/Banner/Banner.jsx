@@ -21,6 +21,12 @@ const initialValues = {
 };
 
 const   Banner = () => {
+
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  const cid = searchParams.get("cid");
+ 
+
   const [user, setUser] = useState();
   const navigate = useNavigate()
 
@@ -30,7 +36,7 @@ const   Banner = () => {
     initialValues: initialValues,
     onSubmit: async (values, action) => {
       if (values.start != values.end) {
-        navigate(`/buslist?start=${values.start}&end=${values.end}&date=${values.date}`)
+        navigate(`/buslist?start=${values.start}&end=${values.end}&date=${values.date}&cid=${cid}`)
       } else {
         toast.warning("Please select different stops")
       }

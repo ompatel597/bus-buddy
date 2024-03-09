@@ -33,6 +33,11 @@ const BusDetails = ({
       }
     }
   };
+
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  const cid = searchParams.get("cid");
+  
   return (
     <>
       <div className="showBusDetailSection">
@@ -193,7 +198,7 @@ const BusDetails = ({
                       vnavigaterp(
                         `/passDetails?date=${datepara}&seatid=${ JSON.stringify(selectedSheets.map(e=>({seatNo:e.seatNo})))}&busid=${e.busid}&price=${
                           e.price * selectedSheets.length
-                        }&start=${startpara}&end=${endpara}`
+                        }&start=${startpara}&end=${endpara}&cid=${cid}`
                       );
                     } else {
                       toast.error("please select atleast 1 seat");

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import email_icon from "../../../../app/assets/email.png";
 import bus_img from "../../../../app/assets/signupImg.png";
 import { useFormik } from "formik";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { LoginSchema} from "../../../Schemas";
 
 import Demo from "../../../assets/bus.json";
@@ -18,6 +18,9 @@ const initialValues = {
 };
 
 const Login = () => {
+
+
+
   const navigate = useNavigate()
   const { values, errors, handleBlur, touched , handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
@@ -37,7 +40,7 @@ const Login = () => {
         let res = await responce.json();
         console.log(res);
         if(res.STATUS === true){
-          navigate("/")
+          navigate(`/?cid=${res.cid}`)
           toast.success("Successfully login ")
           action.resetForm();
         }else {

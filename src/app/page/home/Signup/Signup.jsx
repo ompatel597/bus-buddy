@@ -40,7 +40,7 @@ const Signup = () => {
         let res = await responce.json();
         console.table(res ,"res");
         if(res.STATUS === true){
-          toast.success("Account created successfully")
+          toast.success("Please verify your mail !")
           // navigate("/login")
           navigate(`/emailverify?email=${values.email}`)
           action.resetForm();

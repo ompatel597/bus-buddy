@@ -1,12 +1,39 @@
 import React from 'react'
 
 const Payment = () => {
-  const get_order_details =  JSON.parse( localStorage.getItem("order_details"))
-  
+  const get_order_details =  JSON.parse(localStorage.getItem("order_details"))
 
-  const order_confirm = () =>{
-    console.log(get_order_details);
+
+
+
+// get_order_details.map( (r) => {
+//   <p> {r.date} </p>
+// } )
+
+  const order_confirm =async () =>{
     // call order confirm api call
+    try {
+      const response = await fetch(
+        "https://busbooking.bestdevelopmentteam.com/Api/passenger.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            busid: get_order_details.busid,
+            date: get_order_details.date,
+            start: get_order_details.start,
+            end: get_order_details.end,
+            price: get_order_details.price,
+            passenger_data: get_order_details.passenger_data,
+            cid:25
+          }),
+        },
+      );
+      const setrep = await response.json();
+     console.log(setrep);
+    } catch (error) {
+      console.log("Error sending data");
+    }
   }
   return (
     <div>Payment

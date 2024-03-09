@@ -98,7 +98,7 @@ const BusList = () => {
       const setrep = await response.json();
       setSeats(setrep);
     } catch (error) {
-      console.log("Error sending data", error);
+      console.log("Error sending data");
     }
   };
 

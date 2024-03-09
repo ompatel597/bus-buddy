@@ -20,20 +20,18 @@ const PassDetails = () => {
     useFormik({
       enableReinitialize: true,
       initialValues: {
-        name: "",
-        gender: "",
-        age: "",
-        date: date,
         passenger_data: sheets.map((e) => ({
-          seatNo: e.seatNo,
+          seatid: e.seatNo,
           name: "",
           gender: "",
           age: "",
+          date: date,
+          busid: busid,
+          price: price,
+          start: start,
+          end: end,
+          cid: 24,
         })),
-        busid: busid,
-        price: price,
-        start: start,
-        end: end,
       },
 
       onSubmit: async (values) => {
@@ -65,9 +63,9 @@ const PassDetails = () => {
 
             {/* Passenger card - no - seat  */}
             {sheets?.map((e, index, t) => (
-              <div key={t} className="passenger-info-block"> 
+              <div  className="passenger-info-block"> 
                 <div className="passenger-subtitle">
-                  <span>Passenger : {index + 1}</span>
+                  <span key={t}>Passenger : {index + 1}</span>
 
                   <div className="passenger-seat">
                     <div className="passenger-seat-number">

@@ -9,6 +9,9 @@ import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginSchema} from "../../../Schemas";
 
+import Demo from "../../../assets/bus.json";
+import { useLottie } from "lottie-react";
+
 const initialValues = {
   email: "",
   pass: "",
@@ -32,6 +35,7 @@ const Login = () => {
           }
         );
         let res = await responce.json();
+        console.log(res);
         if(res.STATUS === true){
           navigate("/")
           toast.success("Successfully login ")
@@ -46,10 +50,22 @@ const Login = () => {
     },
   });
 
+
+  const options = {
+    animationData: Demo,
+    loop: true
+  };
+
+  const { View } = useLottie(options);
+
   return (
     <div className="main-container">
       <div className="part-1">
-        <img src={People_waiting} alt="" />
+        {/* <img src={People_waiting} alt="" /> */}
+<div className="ani">
+{View}
+</div>
+        
       </div>
       <div className="part-2">
         <form onSubmit={handleSubmit}>

@@ -1,19 +1,22 @@
-import React from 'react'
-import { useSearchParams } from 'react-router-dom';
+import React from "react";
+import { toast } from "react-toastify";
+import QrImg from "../../assets/qr_img.png";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Payment = () => {
+  const navigate = useNavigate();
   let [searchParams, setSearchParams] = useSearchParams();
 
   const cidUrl = searchParams.get("cid");
+  const TotalSeats = searchParams.get("TotalSeats");
 
-  const get_order_details =  JSON.parse(localStorage.getItem("order_details"))
+  const get_order_details = JSON.parse(localStorage.getItem("order_details"));
 
+  // get_order_details.map( (r) => {
+  //   <p> {r.date} </p>
+  // } )
 
-// get_order_details.map( (r) => {
-//   <p> {r.date} </p>
-// } )
-
-  const order_confirm =async () =>{
+  const order_confirm = async () => {
     // call order confirm api call
     try {
       const response = await fetch(
@@ -22,30 +25,41 @@ const Payment = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            busid: get_order_details.busid,
-            date: get_order_details.date,
+            price: get_order_details.price,
             start: get_order_details.start,
             end: get_order_details.end,
-            price: get_order_details.price,
+            cid: cidUrl,
+            date: get_order_details.date,
+            busid: get_order_details.busid,
             passenger_data: get_order_details.passenger_data,
-            cid: cidUrl
           }),
-        },
+        }
       );
       const setrep = await response.json();
-     console.log(setrep);
+      console.log(setrep);
+      if (setrep.STATUS === true) {
+        toast.success(setrep.message);
+        navigate(
+          `/ticket?ticketno=${setrep.ticketno}&TotalSeats=${TotalSeats}`
+        );
+      }
     } catch (error) {
       console.log("Error sending data");
     }
-  }
+  };
   return (
-    <div>Payment
+    <>
+      <div className="Payment-qr">
+        <h3 style={{ margin: "auto", display: "flex", justifyContent: 'center', marginTop: 20, fontSize: 50}}>Scan to pay</h3>
+      <img
+        src={QrImg}
+        style={{ margin: "auto", display: "flex", marginTop: 50 }}
+      />
+      <button style={{margin: 'auto', marginTop: 20}} onClick={order_confirm}>Pay</button>
+      </div>
+      
+    </>
+  );
+};
 
-      <button onClick={order_confirm} >
-        Pay
-      </button>
-    </div>
-  )
-}
-
-export default Payment
+export default Payment;

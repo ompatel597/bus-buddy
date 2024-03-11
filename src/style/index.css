@@ -999,4 +999,49 @@ hr {
   text-align: center;
   background-color: #d84e55;
   color: #fff;
+}
+
+.Ticket-container {
+  margin: auto;
+  width: 80vw;
+}
+.Ticket-container .Ticket-header {
+  display: flex;
+  justify-content: space-between;
+}
+.Ticket-container .Ticket-header .Ticket-header-left {
+  margin-bottom: 50px;
+}
+.Ticket-container .Ticket-destination-date {
+  display: flex;
+  justify-content: space-between;
+}
+.Ticket-container .Ticket-destination-date .Ticket-start-end {
+  display: flex;
+  gap: 40px;
+}
+.Ticket-container .Ticket-destination-date .Ticket-start-end .Ticket-Arrow {
+  transform: scale(1.3);
+}
+.Ticket-container .Ticket-name-time-seats {
+  display: flex;
+  gap: 200px;
+}
+
+.Payment-qr button {
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  width: 20%;
+  padding: 10px 16px 10px;
+  font-size: 13px;
+  font-weight: 400;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition: 0.1s;
+  border: none;
+  text-align: center;
+  background-color: #d84e55;
+  color: #fff;
 }/*# sourceMappingURL=index.css.map */

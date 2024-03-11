@@ -106,7 +106,7 @@ const BusDetails = ({
           {showSeat && (
             <>
               <div className="bus-seats">
-                {seats?.seats?.map((s, k) => (
+                {seats?.seats?.map((s, k) => ( 
                   <table key={k}>
                     <tbody>
                       {/* Seat */}
@@ -174,7 +174,7 @@ const BusDetails = ({
                   <span>Seat No. </span>
                   <span>
                     {selectedSheets.map((e) => {
-                      return `( ${e.seatNo} ) `;
+                      return ` ${e.seatNo} `;
                     })}
                   </span>
                 </div>
@@ -198,7 +198,9 @@ const BusDetails = ({
                       vnavigaterp(
                         `/passDetails?date=${datepara}&seatid=${ JSON.stringify(selectedSheets.map(e=>({seatNo:e.seatNo})))}&busid=${e.busid}&price=${
                           e.price * selectedSheets.length
-                        }&start=${startpara}&end=${endpara}&cid=${cid}`
+                        }&start=${startpara}&end=${endpara}&cid=${cid}&TotalSeats=${selectedSheets.map((e) => {
+                          return `( ${e.seatNo} ) `;
+                        })}`
                       );
                     } else {
                       toast.error("please select atleast 1 seat");

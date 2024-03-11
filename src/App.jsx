@@ -18,6 +18,7 @@ import Signup from "./app/page/home/Signup/Signup.jsx";
 import Login from "./app/page/home/Login/Login.jsx";
 import Error from "./app/page/home/Error.jsx";
 import PassDetails from "./app/Components/PassDetails/PassDetails.jsx";
+import Ticket from "./app/page/home/Ticket/Ticket.jsx";
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/buslist" element={<BusList />} />
         <Route path="/passDetails" element={<PassDetails />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/ticket" element={<Ticket />} />
         
         
 

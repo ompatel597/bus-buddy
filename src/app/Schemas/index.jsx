@@ -23,3 +23,7 @@ export const ResetPassSchema = Yup.object({
   pass: Yup.string().required("Please enter your password"),
   
 });
+export const PessangerValidation = Yup.object({
+  name: Yup.string().min(2).required("Please enter your name"),
+  
+});

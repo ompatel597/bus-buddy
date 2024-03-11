@@ -3,12 +3,15 @@ import nextIcon from "../../../app/assets/next_cinfo_icon.png";
 import passengerIcon from "../../../app/assets/pass_user.png";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useFormik } from "formik";
+import { PessangerValidation } from "../../Schemas";
 
 const PassDetails = () => {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams();
 
   const cid = searchParams.get("cid");
+  const TotalSeats = searchParams.get("TotalSeats");
+
 
 
   const sheets = JSON.parse(searchParams.get("seatid"));
@@ -21,19 +24,21 @@ const PassDetails = () => {
 
   const { values, errors, handleBlur, touched, handleChange, handleSubmit } =
     useFormik({
+
       enableReinitialize: true,
       initialValues: {
+        price: price,
+        start: start,
+        end: end,
+        cid: cid,
+        date: date,
+        busid: busid,
+
         passenger_data: sheets.map((e) => ({
           seatid: e.seatNo,
           name: "",
           gender: "",
           age: "",
-          date: date,
-          busid: busid,
-          price: price,
-          start: start,
-          end: end,
-          cid: cid,
         })),
       },
 
@@ -41,7 +46,7 @@ const PassDetails = () => {
         try {
 
           localStorage.setItem("order_details" , JSON.stringify(values))
-          navigate(`/payment?cid=${cid}`)
+          navigate(`/payment?cid=${cid}&TotalSeats=${TotalSeats}`)
         } catch (error) {
           console.log(error);
         }
@@ -65,10 +70,10 @@ const PassDetails = () => {
             </div>
 
             {/* Passenger card - no - seat  */}
-            {sheets?.map((e, index, t) => (
+            {sheets?.map((e, index) => (
               <div  className="passenger-info-block"> 
                 <div className="passenger-subtitle">
-                  <span key={t}>Passenger : {index + 1}</span>
+                  <span >Passenger : {index + 1}</span>
 
                   <div className="passenger-seat">
                     <div className="passenger-seat-number">
@@ -84,18 +89,21 @@ const PassDetails = () => {
                     <label htmlFor="name">
                       Name : <br />
                       <input
+                      required
                         type="text"
                         name={`passenger_data.${index}.name`}
                         placeholder="Name"
                         onBlur={handleBlur}
                         onChange={handleChange}
                       />
+                  
                     </label>
                   </div>
                   <div className="passenger-gender">
                     <span>Gender : </span>
                     <div className="gender-radio">
                       <input
+                      required
                         type="radio"
                         name={`passenger_data.${index}.gender`}
                         value="male"
@@ -104,6 +112,7 @@ const PassDetails = () => {
                       />
                       <label htmlFor="male">Male</label>
                       <input
+                      required
                         type="radio"
                         id="female"
                         name={`passenger_data.${index}.gender`}
@@ -118,8 +127,10 @@ const PassDetails = () => {
                     <label htmlFor="age">
                       Age : <br />
                       <input
+                      required
                         className="age-input"
                         type="text"
+                        maxLength={3}
                         name={`passenger_data.${index}.age`}
                         onBlur={handleBlur}
                         onChange={handleChange}

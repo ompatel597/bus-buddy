@@ -24,7 +24,7 @@ const Login = () => {
   const navigate = useNavigate()
   const { values, errors, handleBlur, touched , handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
-    
+    validationSchema: LoginSchema,
     onSubmit: async (values, action) => {
       try {
         const responce = await fetch("https://busbooking.bestdevelopmentteam.com/Api/user_login.php",

@@ -20,6 +20,7 @@ import Error from "./app/page/home/Error.jsx";
 import PassDetails from "./app/Components/PassDetails/PassDetails.jsx";
 import Ticket from "./app/page/home/Ticket/Ticket.jsx";
 import Profile from "./app/Components/Profile/Profile.jsx";
+import TicketHistory from "./app/Components/TicketHistory/TicketHistory.jsx";
 
 
 
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/payment" element={<Payment />} />
         <Route path="/ticket" element={<Ticket />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/history" element={<TicketHistory />} />
         
         
 

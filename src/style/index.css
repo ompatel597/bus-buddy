@@ -1044,4 +1044,83 @@ hr {
   text-align: center;
   background-color: #d84e55;
   color: #fff;
+}
+
+.Profile-head {
+  display: flex;
+  margin: auto;
+  padding-bottom: 10px;
+  width: 210px;
+  color: #1e439b;
+  font-size: 29px;
+  font-weight: 600;
+}
+
+.Profile-line {
+  background-color: #ff5501;
+  height: 4px;
+  width: 20%;
+  margin: auto;
+  border: none;
+}
+
+.Profile-user {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+.Profile-user .Profile-data,
+.Profile-user p {
+  font-size: 22px;
+  margin-top: 15px;
+  justify-content: center;
+  text-align: center;
+}
+.Profile-user .Profile-data .history-btn,
+.Profile-user p .history-btn {
+  border-radius: 10px;
+  margin-top: 35px;
+  width: 70%;
+  padding: 10px 16px 10px;
+  font-size: 19px;
+  font-weight: 500;
+  overflow: hidden;
+  text-decoration: none;
+  transition: 0.1s;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  background-color: #d84e55;
+  color: #fff;
+}
+.Profile-user .Profile-data .history-btn:active,
+.Profile-user p .history-btn:active {
+  transform: scale(0.9);
+}
+.Profile-user .Profile-data .sign-out-btn,
+.Profile-user p .sign-out-btn {
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 60%;
+  cursor: pointer;
+  padding: 10px 16px 10px;
+  font-size: 19px;
+  font-weight: 500;
+  overflow: hidden;
+  text-decoration: none;
+  transition: 0.1s;
+  border: none;
+  text-align: center;
+  transition: ease-out 0.5s;
+  background-color: rgba(0, 0, 0, 0.5764705882);
+  color: #fff;
+}
+.Profile-user .Profile-data .sign-out-btn:hover,
+.Profile-user p .sign-out-btn:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 black;
+}
+.Profile-user .Profile-data .sign-out-btn:active,
+.Profile-user p .sign-out-btn:active {
+  transform: scale(0.9);
 }/*# sourceMappingURL=index.css.map */

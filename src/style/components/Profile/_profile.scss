@@ -1,0 +1,74 @@
+.Profile-head {
+  display: flex;
+  margin: auto;
+  padding-bottom: 10px;
+  width: 210px;
+  color: #1e439b;
+  font-size: 29px;
+  //   border-bottom: 3px solid #ff5501;
+  font-weight: 600;
+}
+
+.Profile-line {
+  background-color: #ff5501;
+  height: 4px;
+  width: 20%;
+  margin: auto;
+  border: none;
+}
+.Profile-user {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+
+  .Profile-data,
+  p {
+    font-size: 22px;
+    margin-top: 15px;
+    justify-content: center;
+    text-align: center;
+    .history-btn {
+      border-radius: 10px;
+      margin-top: 35px;
+      width: 70%;
+      padding: 10px 16px 10px;
+      font-size: 19px;
+      font-weight: 500;
+      overflow: hidden;
+      text-decoration: none;
+      transition: 0.1s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      background-color: #d84e55;
+      color: #fff;
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+    .sign-out-btn {
+      border-radius: 10px;
+      margin-top: 20px;
+      width: 60%;
+      cursor: pointer;
+      padding: 10px 16px 10px;
+      font-size: 19px;
+      font-weight: 500;
+      overflow: hidden;
+      text-decoration: none;
+      transition: 0.1s;
+      border: none;
+      text-align: center;
+      transition: ease-out 0.5s;
+      background-color: #00000093;
+      color: #fff;
+      &:hover {
+        color: white;
+        box-shadow: inset 0 -100px 0 0 black;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}

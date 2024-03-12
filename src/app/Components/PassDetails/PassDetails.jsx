@@ -21,6 +21,7 @@ const PassDetails = () => {
   const start = searchParams.get("start");
   const end = searchParams.get("end");
   const price = searchParams.get("price");
+  console.log(price);
 
   const { values, errors, handleBlur, touched, handleChange, handleSubmit } =
     useFormik({

@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { toast } from 'react-toastify';
 import React, { useState } from "react";
 import {
   useLocation,
@@ -38,7 +39,7 @@ const ResetPass = () => {
       
           let res = await responce.json();
           if (res.STATUS === true) {
-          
+          toast.success(res.message)
             
             navigate("/login");
           } else {

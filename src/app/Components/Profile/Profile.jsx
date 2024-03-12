@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import SecureLS from "secure-ls";
 
 const Profile = () => {
   const bnavigate = useNavigate()
-  const [first, setfirst] = useState([]);
+  const [first, setfirst] = useState("loading");
 
-  let [searchParams, setSearchParams] = useSearchParams();
-
-  const cidUrl = searchParams.get("cid");
+  var ls = new SecureLS();
+  const currentUser = ls.get('busbuddy_user_info'); 
 
   useEffect(() => {
     async function getData() {
@@ -18,7 +18,7 @@ const Profile = () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              cid: cidUrl,
+              cid: currentUser.cid,
             }),
           }
         );
@@ -33,27 +33,37 @@ const Profile = () => {
 
   const HistoryNavigate = () => {
     setTimeout(() => {
-      bnavigate(`/history?cid=${cidUrl}`)
+      bnavigate(`/history`)
     }, 200);
+  }
+
+  const LogOut = () => {
+    bnavigate("/")
+    ls.remove('busbuddy_user_info'); 
   }
   return (
     <>
       <h2 className="Profile-head"> &nbsp;&nbsp;&nbsp;User Profile</h2>
       <hr className="Profile-line" />
       <div className="Profile-user">
+        {first === "loading" ? "loading" :
         <div className="Profile-data">
           <p>
-            <b>Name:</b> {first.name}
+            <b>Name:</b> {first?.name}
           </p>
           <p>
-            <b>Phone no:</b> {first.mobile}
+            <b>Phone no:</b> {first?.mobile}
           </p>
           <p>
-            <b>email:</b> {first.email}
+            <b>email:</b> {first?.email}
           </p>
       <button onClick={HistoryNavigate} className="history-btn">Ticket history</button>
-      <button className="sign-out-btn" style={{fontSize: 24}}>Sign Out <i className="fa fa-sign-out"></i></button>
+      <button onClick={LogOut}  className="sign-out-btn" style={{fontSize: 24}}>Sign Out <i className="fa fa-sign-out"></i></button>
+      <br />
+      <br />
+      <li  style={{fontSize: 15}}> <Link to="/forgetpass" className='Routes-link nav-txt'>Reset password ?</Link></li>
         </div>
+        }
       </div>
     </>
   );

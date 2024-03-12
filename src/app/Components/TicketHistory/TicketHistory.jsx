@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import bLogo from "../../../app/assets/bb-logo.png";
 import RightArrow from "../../../app/assets/right-arrow-ticket.png";
 import { useSearchParams } from "react-router-dom";
+import SecureLS from "secure-ls";
 
 const TicketHistory = () => {
 
-  let [searchParams, setSearchParams] = useSearchParams();
-  const cidUrl = searchParams.get("cid");
+  var ls = new SecureLS();
+  const currentUser = ls.get('busbuddy_user_info'); 
+
 
   const [first, setfirst] = useState([]);
   const [values, setvalues] = useState({
@@ -27,7 +29,7 @@ const TicketHistory = () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              cid: cidUrl,
+              cid: currentUser.cid,
               date: values,
             }),
           }
@@ -60,6 +62,9 @@ const TicketHistory = () => {
           <br />
         </div>
       </div>
+
+
+      
 
       <hr
         style={{

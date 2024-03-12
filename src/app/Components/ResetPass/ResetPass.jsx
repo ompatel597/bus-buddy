@@ -38,16 +38,15 @@ const ResetPass = () => {
           )
       
           let res = await responce.json();
+          console.log(res);
           if (res.STATUS === true) {
           toast.success(res.message)
             
             navigate("/login");
-          } else {
-            alert("error")
-          }
+          } 
         } catch (e) {
           
-          alert("error")
+          console.log(e)
         }
         action.resetForm();
       },

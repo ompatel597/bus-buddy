@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import user_icon from "../../../../app/assets/person.png";
 import pass_icon from "../../../../app/assets/password.png";
 import People_waiting from "../../../../app/assets/Peoplewaiting.webp";
@@ -11,6 +11,7 @@ import { LoginSchema} from "../../../Schemas";
 
 import Demo from "../../../assets/bus.json";
 import { useLottie } from "lottie-react";
+import SecureLS from "secure-ls";
 
 const initialValues = {
   email: "",
@@ -19,7 +20,7 @@ const initialValues = {
 
 const Login = () => {
 
-
+  var ls = new SecureLS();
 
   const navigate = useNavigate()
   const { values, errors, handleBlur, touched , handleChange, handleSubmit } = useFormik({
@@ -40,9 +41,12 @@ const Login = () => {
         let res = await responce.json();
         console.log(res);
         if(res.STATUS === true){
-          navigate(`/?cid=${res.cid}`)
           toast.success("Successfully login ")
           action.resetForm();
+
+          navigate(`/`)
+          // --save user infomation--
+          ls.set('busbuddy_user_info', res);
         }else {
           toast.error("email and password is incorrect")
         }
@@ -58,6 +62,14 @@ const Login = () => {
     animationData: Demo,
     loop: true
   };
+
+
+  useEffect(()=>{
+   const currentUser = ls.get('busbuddy_user_info'); 
+   if(currentUser){
+    navigate(`/`)
+   }
+  },[])
 
   const { View } = useLottie(options);
 

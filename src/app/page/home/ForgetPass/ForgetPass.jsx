@@ -68,14 +68,7 @@ const ForgetPass = () => {
             {loading ? "loading" : "Send Email"}
           </button>
         </form>
-        {/* <p className="signup-link-fp">
-          Don't have an account? 
-          <a>
-            <Link to="/signup" className="Routes-link">
-               Signup now
-            </Link>
-          </a>
-        </p> */}
+        
       </div>
     </div>
   );

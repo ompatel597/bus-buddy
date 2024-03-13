@@ -15,6 +15,9 @@ const initialValues = {
 };
 
 const BusList = () => {
+
+  const [loading, setloading] = useState(false);
+
   const navigater = useNavigate();
   const [user, setUser] = useState();
   const [bus, setBus] = useState();
@@ -30,6 +33,7 @@ const BusList = () => {
   const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: async (values, action) => {
+      setloading(true)
       try {
         const responce = await fetch(
           "https://busbooking.bestdevelopmentteam.com/Api/bussrch.php",
@@ -49,6 +53,7 @@ const BusList = () => {
         if (ress.status === false) {
           toast.error("Bus not found")
         }
+        setloading(false)
       } catch (error) {
         console.log(error);
       }
@@ -76,7 +81,9 @@ const BusList = () => {
   }, [startpara, endpara, datepara]);
 
 
-
+if (startpara === endpara) {
+  toast.warning("Pls select different stops")
+}
 
   /// bus id and date
   const sendDataToBackend = async (busId, date) => {
@@ -97,11 +104,19 @@ const BusList = () => {
       );
       const setrep = await response.json();
       setSeats(setrep);
+
     } catch (error) {
       console.log("Error sending data");
     }
   };
 
+  const disablePreDate = () => {
+    const today = new Date();
+    const dd = today.getDate();
+    const mm = today.getMonth() + 1;
+    const yyyy = today.getFullYear();
+    return `${yyyy}-${mm < 10 ? "0" + mm : mm}-${dd < 10 ? "0" + dd : dd}`;
+};
 
 
   return (
@@ -151,6 +166,7 @@ const BusList = () => {
                 <label htmlFor="date">DATE</label>
                 <input
                   type="date"
+                  min={disablePreDate()}
                   value={datepara}
                   onChange={(e) => {
                     const valueDate = e.target.value;
@@ -173,10 +189,18 @@ const BusList = () => {
           </div>
         </div>
       </div>
+{loading ? <div style={{marginLeft: 670, marginBottom: -130}} className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> 
 
-      {bus?.data?.map((e, r) => (
-        <BusDetails e={e} r={r} seats={seats} datepara={datepara} sendDataToBackend={sendDataToBackend} startpara={startpara} endpara={endpara}  />
-      ))}
+: 
+<div>
+{bus?.data?.map((e, r) => (
+  <BusDetails e={e} r={r} seats={seats} datepara={datepara} sendDataToBackend={sendDataToBackend} startpara={startpara} endpara={endpara} loading={loading} setloading={setloading} useState={useState} />
+))}
+</div>
+
+
+}
+      
 
       
     </>

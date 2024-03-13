@@ -46,7 +46,7 @@ const Profile = () => {
       <h2 className="Profile-head"> &nbsp;&nbsp;&nbsp;User Profile</h2>
       <hr className="Profile-line" />
       <div className="Profile-user">
-        {first === "loading" ? "loading" :
+        {first === "loading" ? <div style={{display: 'flex', margin: 'auto', marginTop: 20}} className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> :
         <div className="Profile-data">
           <p>
             <b>Name:</b> {first?.name}

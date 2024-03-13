@@ -14,6 +14,7 @@ const BusDetails = ({
 }) => {
 
   const vnavigaterp = useNavigate();
+
   const [showSeat, setShowSeat] = useState(false);
   const [selectedSheets, setSelectedSheets] = useState([]);
 
@@ -34,9 +35,6 @@ const BusDetails = ({
     }
   };
 
-  let [searchParams, setSearchParams] = useSearchParams();
-
-  const cid = searchParams.get("cid");
   
   return (
     <>
@@ -198,7 +196,7 @@ const BusDetails = ({
                       vnavigaterp(
                         `/passDetails?date=${datepara}&seatid=${ JSON.stringify(selectedSheets.map(e=>({seatNo:e.seatNo})))}&busid=${e.busid}&price=${
                           e.price * selectedSheets.length
-                        }&start=${startpara}&end=${endpara}&cid=${cid}&TotalSeats=${selectedSheets.map((e) => {
+                        }&start=${startpara}&end=${endpara}&TotalSeats=${selectedSheets.map((e) => {
                           return `( ${e.seatNo} ) `;
                         })}`
                       );

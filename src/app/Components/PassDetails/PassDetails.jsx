@@ -4,6 +4,7 @@ import passengerIcon from "../../../app/assets/pass_user.png";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useFormik } from "formik";
 import { PessangerValidation } from "../../Schemas";
+import SecureLS from "secure-ls";
 
 const PassDetails = () => {
   const navigate = useNavigate()
@@ -12,6 +13,8 @@ const PassDetails = () => {
   const cid = searchParams.get("cid");
   const TotalSeats = searchParams.get("TotalSeats");
 
+  var ls = new SecureLS();
+  const currentUser = ls.get('busbuddy_user_info');
 
 
   const sheets = JSON.parse(searchParams.get("seatid"));
@@ -31,7 +34,7 @@ const PassDetails = () => {
         price: price,
         start: start,
         end: end,
-        cid: cid,
+        cid: currentUser.cid,
         date: date,
         busid: busid,
 
@@ -47,7 +50,7 @@ const PassDetails = () => {
         try {
 
           localStorage.setItem("order_details" , JSON.stringify(values))
-          navigate(`/payment?cid=${cid}&TotalSeats=${TotalSeats}`)
+          navigate(`/payment?TotalSeats=${TotalSeats}`)
         } catch (error) {
           console.log(error);
         }

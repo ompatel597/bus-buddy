@@ -24,7 +24,7 @@ const initialValues = {
 
 const   Banner = () => {
 
-  
+  const [loading, setloading] = useState(false);
 
   let [searchParams, setSearchParams] = useSearchParams();
 
@@ -40,7 +40,7 @@ const   Banner = () => {
     initialValues: initialValues,
     onSubmit: async (values, action) => {
       if (values.start != values.end) {
-        navigate(`/buslist?start=${values.start}&end=${values.end}&date=${values.date}&cid=${cid}`)
+        navigate(`/buslist?start=${values.start}&end=${values.end}&date=${values.date}`)
       } else {
         toast.warning("Please select different stops")
       }
@@ -51,12 +51,14 @@ const   Banner = () => {
   // Dropdown API
   useEffect(() => {
     async function getData() {
+      setloading(true)
       try {
         const res = await fetch(
           "https://busbooking.bestdevelopmentteam.com/Api/stopsapi.php"
         );
         const responce = await res.json();
         setUser(responce);
+        setloading(false)
       } catch {
         toast.error("Stops error !");
       }
@@ -81,8 +83,8 @@ const   Banner = () => {
             <h1>Find cheap bus tickets <br />for your next trip</h1>
             <p>Easily compare and book your next trip with Busbud</p>
           </div>
-
-          <div className="search_form">
+{ loading ? <div style={{marginLeft: 500, marginBottom: -130}} class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : 
+<div className="search_form">
             <form onSubmit={handleSubmit}>
               <div className="source-starting">
                 <label htmlFor="">ORIGIN</label>
@@ -123,6 +125,8 @@ const   Banner = () => {
               </div>
             </form>
           </div>
+}
+          
         </div>
       </div>
 

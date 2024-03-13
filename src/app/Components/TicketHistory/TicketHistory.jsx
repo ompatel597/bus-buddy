@@ -6,14 +6,14 @@ import SecureLS from "secure-ls";
 
 const TicketHistory = () => {
 
+  const [loading, setloading] = useState(false)
+
   var ls = new SecureLS();
   const currentUser = ls.get('busbuddy_user_info'); 
 
 
   const [first, setfirst] = useState([]);
-  const [values, setvalues] = useState({
-    date:"",
-  })
+  const [values, setvalues] = useState()
 
   const handleInput = (e) => {
     setvalues(e.target.value)
@@ -22,6 +22,7 @@ const TicketHistory = () => {
 
   useEffect(() => {
     async function getHistory() {
+      setloading(true)
       try {
         const ress = await fetch(
           "https://busbooking.bestdevelopmentteam.com/Api/userhistory.php",
@@ -37,6 +38,7 @@ const TicketHistory = () => {
         const Respo = await ress.json();
         console.log(Respo);
         setfirst(Respo);
+        setloading(false)
       } catch {
         console.log("errr");
       }
@@ -48,7 +50,7 @@ const TicketHistory = () => {
     <>
       <div style={{display: 'flex', justifyContent: 'center',alignItems:'center',gap:'10px'}} className="Ticket-history">
         <span >Enter Date :</span>
-        <input style={{width: "11%", }} type="date" name="date" onChange={e => setvalues(e.target.value)}  value={values} />
+        <input style={{width: "11%", cursor: 'pointer' }} type="date" name="date" onChange={e => setvalues(e.target.value)}  value={values} />
       </div>
       
       {/* Main Header */}
@@ -78,8 +80,10 @@ const TicketHistory = () => {
           opacity: 0.5,
         }}
       />
-
-      {first?.tickit?.map((g, j) => (
+      {loading ? <div style={{display: 'flex', margin: 'auto', marginTop: '25vh'}} class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> 
+      :
+<div>
+{first?.tickit?.map((g, j) => (
       <div style={{ marginTop: 30 }} className="Ticket-container" key={j}>
       
       <br />
@@ -221,6 +225,10 @@ const TicketHistory = () => {
       </div>
     </div>
       ))}
+</div>
+      }
+
+     
     </>
   );
 };

@@ -2,12 +2,17 @@ import React from "react";
 import { toast } from "react-toastify";
 import QrImg from "../../assets/qr_img.png";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import SecureLS from "secure-ls";
 
 const Payment = () => {
+  
+
+  var ls = new SecureLS();
+  const currentUser = ls.get('busbuddy_user_info');
+
   const navigate = useNavigate();
   let [searchParams, setSearchParams] = useSearchParams();
 
-  const cidUrl = searchParams.get("cid");
   const TotalSeats = searchParams.get("TotalSeats");
 
   const get_order_details = JSON.parse(localStorage.getItem("order_details"));
@@ -28,7 +33,7 @@ const Payment = () => {
             price: get_order_details.price,
             start: get_order_details.start,
             end: get_order_details.end,
-            cid: cidUrl,
+            cid: currentUser.cid,
             date: get_order_details.date,
             busid: get_order_details.busid,
             passenger_data: get_order_details.passenger_data,
@@ -55,7 +60,7 @@ const Payment = () => {
         src={QrImg}
         style={{ margin: "auto", display: "flex", marginTop: 50 }}
       />
-      <button style={{margin: 'auto', marginTop: 20}} onClick={order_confirm}>Pay</button>
+      <button style={{margin: 'auto', marginTop: 20, cursor: 'pointer'}} onClick={order_confirm}>Pay</button>
       </div>
       
     </>

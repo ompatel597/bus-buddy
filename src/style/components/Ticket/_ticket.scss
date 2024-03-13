@@ -1,29 +1,95 @@
-.Ticket-container{
-    margin: auto;
-    width: 80vw;
-    .Ticket-header{
-        display: flex;
-        justify-content: space-between;
-        .Ticket-header-left{
-            margin-bottom: 50px;
-        }
+.Ticket-container {
+  margin: auto;
+  width: 80vw;
+  .Ticket-header {
+    display: flex;
+    justify-content: space-between;
+    .Ticket-header-left {
+      margin-bottom: 50px;
     }
+  }
 
-    .Ticket-destination-date{
-        display: flex;
-        justify-content: space-between;
+  .Ticket-destination-date {
+    display: flex;
+    justify-content: space-between;
 
-        .Ticket-start-end{
-            display: flex;
-            gap: 40px;
-            .Ticket-Arrow{
-                transform: scale(1.3);
-            }
-        }
+    .Ticket-start-end {
+      display: flex;
+      gap: 40px;
+      .Ticket-Arrow {
+        transform: scale(1.3);
+      }
     }
+  }
 
-    .Ticket-name-time-seats{
-        display: flex;
-        gap: 200px;
-    }
+  .Ticket-name-time-seats {
+    display: flex;
+    gap: 200px;
+  }
 }
+
+.back-to-home {
+    justify-content: end;
+    display: flex;
+    width: 90vw;
+    margin-top: 20px;
+}
+
+.back-to-home button {
+    position: relative;
+    height: 50px;
+    padding: 0 30px;
+    border: 2px solid #000;
+    background: transparent;
+    user-select: none;
+    white-space: nowrap;
+    transition: all .05s linear;
+    font-family: inherit;
+   }
+   
+   .back-to-home button:before,.back-to-home button:after {
+    content: "";
+    position: absolute;
+    background: white;
+    transition: all .2s linear;
+   }
+   
+   .back-to-home button:before {
+    width: calc(100% + 6px);
+    height: calc(100% - 16px);
+    top: 8px;
+    left: -3px;
+   }
+   
+   .back-to-home button:after {
+    width: calc(100% - 16px);
+    height: calc(100% + 6px);
+    top: -3px;
+    left: 8px;
+   }
+   
+   .back-to-home button:hover {
+    cursor: pointer;
+   }
+   
+   .back-to-home button:active {
+    transform: scale(0.95);
+   }
+   
+   .back-to-home button:hover:before {
+    height: calc(100% - 32px);
+    top: 16px;
+   }
+   
+   .back-to-home button:hover:after {
+    width: calc(100% - 32px);
+    left: 16px;
+   }
+   
+   .back-to-home button span {
+    font-size: 15px;
+    z-index: 3;
+    position: relative;
+    font-weight: 600;
+   }
+

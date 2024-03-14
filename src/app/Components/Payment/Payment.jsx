@@ -52,6 +52,9 @@ const Payment = () => {
       console.log("Error sending data");
     }
   };
+
+
+
   return (
     <>
       <div className="Payment-qr">

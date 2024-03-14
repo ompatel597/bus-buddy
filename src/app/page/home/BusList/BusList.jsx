@@ -182,7 +182,7 @@ if (startpara === endpara) {
               <div className="search-bus">
                 <button type="submit">
                   <i className="ri-search-2-line" />
-                  Search
+                  Update
                 </button>
               </div>
             </form>

@@ -1198,6 +1198,27 @@ hr {
   font-weight: 600;
 }
 
+.mail-ticket button {
+  display: flex;
+  justify-content: start;
+  margin-left: 140px;
+  border-radius: 10px;
+  margin-top: 35px;
+  padding: 10px 16px 10px;
+  font-size: 19px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.1s;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  background-color: #d84e55;
+  color: #fff;
+}
+.mail-ticket button:active {
+  transform: scale(0.9);
+}
+
 .Payment-qr button {
   display: flex;
   border-radius: 10px;

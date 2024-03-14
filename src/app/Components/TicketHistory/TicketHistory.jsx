@@ -58,8 +58,8 @@ const TicketHistory = () => {
         
         <div className="Ticket-header-right">
           <b>Need help with your trip?</b>
-          <p>+91 88888 88888</p>
-          <a>busbuddy@gmail.com</a>
+          <br />
+          <a style={{color: 'blue', fontSize: 14, textAlign: 'center'}}>busbuddy07@gmail.com</a>
           <br />
           <br />
         </div>

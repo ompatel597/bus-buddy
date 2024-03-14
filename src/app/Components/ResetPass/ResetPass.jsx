@@ -33,7 +33,8 @@ const ResetPass = () => {
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 email: resetEmail,
-                password: values.pass,
+                password: values.password,
+                conpassw: values.conpassw,
               }),
             }
           );
@@ -63,28 +64,31 @@ const ResetPass = () => {
 
           <input
             type="password"
-            value={values.pass}
+            value={values.password}
             onBlur={handleBlur}
             autoComplete="off"
-            name="pass"
+            name="password"
             placeholder="Create Password"
             onChange={handleChange}
           />
-          {errors.pass && touched.pass ? (
+          {errors.password && touched.password ? (
             <p className="form-error" style={{ color: "red" }}>
               {" "}
-              {errors.pass}{" "}
+              {errors.password}{" "}
             </p>
           ) : null}
 
           <input
             type="password"
-            name="conpass"
+            onBlur={handleBlur}
+            onChange={handleChange}
+            value={values.conpassw}
+            name="conpassw"
             autoComplete="off"
             placeholder="Confirm password"
           />
           {errors.conpassw && touched.conpassw ? (
-            <p className="form-error"> {errors.conpassw} </p>
+            <p style={{ color: "red" }} className="form-error"> {errors.conpassw} </p>
           ) : null}
 
           <button type="submit">Create password</button>

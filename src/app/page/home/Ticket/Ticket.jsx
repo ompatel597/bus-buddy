@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import bLogo from "../../../assets/bb-logo.png";
+import { toast } from 'react-toastify';
+
 import RightArrow from "../../../assets/right-arrow-ticket.png";
+import SecureLS from "secure-ls";
 
 const Ticket = () => {
+
+  var ls = new SecureLS();
+  const currentUser = ls.get('busbuddy_user_info');
+
   const navigater = useNavigate()
   const [Tickets, setTickets] = useState();
 
@@ -29,7 +36,6 @@ const Ticket = () => {
         );
         const responces = await ress.json();
         setTickets(responces);
-        console.log(responces);
         setloading(false);
       } catch {
         console.log("errr");
@@ -42,10 +48,36 @@ const Ticket = () => {
     navigater("/")
   }
 
+
+
+    async function mailTicket() {
+      try {
+        const respo = await fetch(
+          "https://busbooking.bestdevelopmentteam.com/Api/pdf.php",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              ticketno: Ticketno,
+              cid: currentUser.cid,
+            }),
+          }
+        );
+        const resp = await respo.json();
+        console.log(resp);
+        if (resp.STATUS === true) {
+            toast.success("Ticket sent to your mail")
+        }
+      } catch {
+        console.log("errr");
+      }
+    }
+  
+
   return (
     <>
       {loading ? (
-        <div style={{ marginLeft: 650, marginTop: 50 }} class="lds-roller">
+        <div style={{ marginLeft: 650, marginTop: 50 }} className="lds-roller">
           <div></div>
           <div></div>
           <div></div>
@@ -66,8 +98,8 @@ const Ticket = () => {
                 </div>
                 <div className="Ticket-header-right">
                   <b>Need help with your trip?</b>
-                  <p>+91 88888 88888</p>
-                  <a>busbuddy@gmail.com</a>
+                  <br />
+                  <a>busbuddy07@gmail.com</a>
                 </div>
               </div>
 
@@ -177,8 +209,8 @@ const Ticket = () => {
                 className="Ticket-customer"
               >
                 
-                {g?.passenger?.map((h) => (
-                  <div
+                {g?.passenger?.map((h,o) => (
+                  <div key={o}
                     style={{
                       display: "flex",
                       flexDirection: "column",
@@ -225,6 +257,11 @@ const Ticket = () => {
           <div className="back-to-home">
             <button onClick={navigateHome}>
               <span> Back to Home</span>
+            </button>
+          </div>
+          <div className="mail-ticket">
+            <button onClick={mailTicket}>
+              <span> Mail me this ticket</span>
             </button>
           </div>
         </div>

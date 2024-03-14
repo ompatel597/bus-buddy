@@ -20,7 +20,10 @@ export const LoginSchema = Yup.object({
 });
 
 export const ResetPassSchema = Yup.object({
-  pass: Yup.string().required("Please enter your password"),
+  pass: Yup.string().min(6).required("Please enter your password"),
+  conpassw: Yup.string()
+    .required("enter your password again")
+    .oneOf([Yup.ref("pass"), null], "Password must match"),
   
 });
 export const PessangerValidation = Yup.object({

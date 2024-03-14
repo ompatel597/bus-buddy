@@ -74,7 +74,10 @@ const OtpVerify = () => {
             maxLength={4}
             placeholder="Enter OTP"
           />
-          <button type="submit">Verify OTP Code</button>
+          <button type="submit">
+            {loading ? "Loading..." :"Verify OTP Code" }
+            
+            </button>
         </form>
       </div>
     </>

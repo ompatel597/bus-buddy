@@ -53,6 +53,7 @@ const ForgetPass = () => {
             <input
               type="email"
               id="email"
+              required
               value={values.email}
               onBlur={handleBlur}
               onChange={handleChange}

@@ -176,6 +176,7 @@ const Ticket = () => {
                 style={{ display: "flex", gap: 200 }}
                 className="Ticket-customer"
               >
+                
                 {g?.passenger?.map((h) => (
                   <div
                     style={{

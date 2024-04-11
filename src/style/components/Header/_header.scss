@@ -1,15 +1,23 @@
+@import '../../../style/base/variables';
+
 nav{
     width: 75%;
     
     margin: auto;
 
     .navbar{
+
         display: flex;
         justify-content: space-between;
         padding: 15px;
         align-items: center;
         .nav_logo{
             img{
+
+                @media (max-width: $sm) {
+                    transform: scale(2.3);
+                  }
+
                 width:11vw
             }
         }

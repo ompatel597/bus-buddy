@@ -20,6 +20,9 @@ const Ticket = () => {
   const Ticketno = searchParams.get("ticketno");
   const TotalSeat = searchParams.get("TotalSeats");
 
+  
+  const [disable, setDisable]  = useState(false)
+
   useEffect(() => {
     async function getData() {
       setloading(true);
@@ -53,7 +56,7 @@ const Ticket = () => {
     async function mailTicket() {
       try {
         const respo = await fetch(
-          "https://busbooking.bestdevelopmentteam.com/Api/pdf.php",
+          "https://busbooking.bestdevelopmentteam.com/Api/ticketmail.php",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -72,6 +75,7 @@ const Ticket = () => {
         console.log("errr");
       }
     }
+
   
 
   return (
@@ -260,7 +264,7 @@ const Ticket = () => {
             </button>
           </div>
           <div className="mail-ticket">
-            <button onClick={mailTicket}>
+            <button onClick={mailTicket}  disabled={disable}>
               <span> Mail me this ticket</span>
             </button>
           </div>

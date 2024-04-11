@@ -1,12 +1,19 @@
+@import "../../../style/base/variables";
 // Main Banner CSS
 
 .main_banner {
+
+  @media (max-width: $sm) {
+    background-image: url('../../../../src/app/assets/busbudBG2.svg');
+    
+  }
   background-image: url("../../../../src/app/assets/banner.svg"),
     linear-gradient(
       90deg,
       rgba(231, 246, 254, 1) 57%,
       rgba(238, 254, 247, 1) 100%
     );
+
   position: relative;
   width: 100%;
   background-position: 50% 45%;
@@ -26,6 +33,21 @@
         font-size: 60px;
         font-weight: 500;
         margin-bottom: 15px;
+
+        @media (max-width: $sm) {
+          width: 190%;
+          margin: auto;
+          font-weight: 800;
+          justify-content: center;
+          text-align: center;
+          font-size: 25px;
+        }
+      }
+
+      p {
+        @media (max-width: $sm) {
+          display: none;
+        }
       }
     }
     .search_form {
@@ -35,7 +57,25 @@
       bottom: -40px;
       left: 0;
       right: 0;
+      @media (max-width: $sm) {
+        position: static;
+       
+      }
+
       form {
+
+
+        @media (max-width: $sm) {
+          margin-top: 50px;
+          display: unset;
+          flex-direction: column;
+          background-color: transparent;
+          box-shadow: none;
+          margin-top: 80px;
+          width: 80%;
+
+         
+        }
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -45,13 +85,25 @@
         box-shadow: 0px 1px 4px 0px hsla(206, 48%, 24%, 0.1),
           0px 6px 12px 0px hsla(206, 48%, 24%, 0.1);
         gap: 30px;
+
+        
         div {
           display: flex;
           flex-direction: column;
           border-right: 1px solid black;
           padding-left: 10px;
 
+          @media (max-width: $sm) {
+            border: none;
+            gap: 20px;
+          }
+
           label {
+
+            @media (max-width: $sm) {
+              font-size: 13px;
+              margin-bottom: -10px;
+            }
             font-size: 10px;
           }
           select {
@@ -72,7 +124,7 @@
           border-right: none;
           label {
             font-size: 10px;
-            margin-bottom: 15px;    
+            margin-bottom: 15px;
           }
           input {
             padding: 5px 16px;

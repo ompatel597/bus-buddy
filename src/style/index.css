@@ -140,6 +140,11 @@ nav .navbar {
 nav .navbar .nav_logo img {
   width: 11vw;
 }
+@media (max-width: 640px) {
+  nav .navbar .nav_logo img {
+    transform: scale(2.3);
+  }
+}
 nav .navbar .nav_links ul {
   display: flex;
   gap: 20px;
@@ -158,6 +163,11 @@ nav .navbar .nav_links ul .nav-txt {
   color: hsl(206, 48%, 24%);
   padding-bottom: 100px;
 }
+@media (max-width: 640px) {
+  .main_banner {
+    background-image: url("../../../../src/app/assets/busbudBG2.svg");
+  }
+}
 .main_banner .banner_div {
   width: 75%;
   margin: auto;
@@ -171,6 +181,21 @@ nav .navbar .nav_links ul .nav-txt {
   font-weight: 500;
   margin-bottom: 15px;
 }
+@media (max-width: 640px) {
+  .main_banner .banner_div .banner_text h1 {
+    width: 190%;
+    margin: auto;
+    font-weight: 800;
+    justify-content: center;
+    text-align: center;
+    font-size: 25px;
+  }
+}
+@media (max-width: 640px) {
+  .main_banner .banner_div .banner_text p {
+    display: none;
+  }
+}
 .main_banner .banner_div .search_form {
   width: 75%;
   margin: auto;
@@ -178,6 +203,11 @@ nav .navbar .nav_links ul .nav-txt {
   bottom: -40px;
   left: 0;
   right: 0;
+}
+@media (max-width: 640px) {
+  .main_banner .banner_div .search_form {
+    position: static;
+  }
 }
 .main_banner .banner_div .search_form form {
   display: flex;
@@ -189,14 +219,37 @@ nav .navbar .nav_links ul .nav-txt {
   box-shadow: 0px 1px 4px 0px hsla(206, 48%, 24%, 0.1), 0px 6px 12px 0px hsla(206, 48%, 24%, 0.1);
   gap: 30px;
 }
+@media (max-width: 640px) {
+  .main_banner .banner_div .search_form form {
+    margin-top: 50px;
+    display: unset;
+    flex-direction: column;
+    background-color: transparent;
+    box-shadow: none;
+    margin-top: 80px;
+    width: 80%;
+  }
+}
 .main_banner .banner_div .search_form form div {
   display: flex;
   flex-direction: column;
   border-right: 1px solid black;
   padding-left: 10px;
 }
+@media (max-width: 640px) {
+  .main_banner .banner_div .search_form form div {
+    border: none;
+    gap: 20px;
+  }
+}
 .main_banner .banner_div .search_form form div label {
   font-size: 10px;
+}
+@media (max-width: 640px) {
+  .main_banner .banner_div .search_form form div label {
+    font-size: 13px;
+    margin-bottom: -10px;
+  }
 }
 .main_banner .banner_div .search_form form div select {
   border: none;
@@ -275,6 +328,14 @@ nav .navbar .nav_links ul .nav-txt {
   height: 100%;
   transform: scale(0.8);
 }
+@media (max-width: 640px) {
+  .main-container .part-1 img {
+    display: none;
+  }
+}
+.main-container .signuppart2 {
+  margin-top: 150px;
+}
 .main-container .part-2 {
   width: 50%;
   background: white;
@@ -285,6 +346,12 @@ nav .navbar .nav_links ul .nav-txt {
   margin-right: 20px;
   border-radius: 50px;
 }
+@media (max-width: 640px) {
+  .main-container .part-2 {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
 .main-container .part-2 .container {
   max-width: 500px;
   display: flex;
@@ -292,6 +359,13 @@ nav .navbar .nav_links ul .nav-txt {
   margin: auto;
   margin-top: 10px;
   background-color: transparent;
+}
+@media (max-width: 640px) {
+  .main-container .part-2 .container {
+    max-width: 400px;
+    overflow: hidden;
+    scale: 0.9;
+  }
 }
 .main-container .part-2 .container .header .text {
   color: black;
@@ -306,14 +380,14 @@ nav .navbar .nav_links ul .nav-txt {
   gap: 10px;
 }
 .main-container .part-2 .container .inputs .input {
-  box-shadow: 0 0 5pt 2pt #d3d3d3;
+  border: 0.9px solid black;
   display: flex;
   align-items: center;
   background-color: white;
   border-radius: 6px;
 }
 .main-container .part-2 .container .inputs .input:hover {
-  box-shadow: 0 0 5pt 2pt rgb(137, 149, 185);
+  box-shadow: 0 0 2pt 2pt rgb(210, 212, 216);
   display: flex;
   align-items: center;
   background-color: white;
@@ -385,6 +459,126 @@ nav .navbar .nav_links ul .nav-txt {
 
 form {
   border-radius: 36px;
+}
+
+@media (max-width: 640px) {
+  .ani {
+    display: none;
+  }
+}
+
+.part-3 {
+  width: 50%;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  margin-right: 20px;
+  border-radius: 50px;
+}
+@media (max-width: 640px) {
+  .part-3 {
+    width: 100%;
+    margin-top: 150px;
+  }
+}
+.part-3 .container {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 10px;
+  background-color: transparent;
+}
+.part-3 .container .header .text {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+.part-3 .container .inputs {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.part-3 .container .inputs .input {
+  border: 0.9px solid black;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 6px;
+}
+.part-3 .container .inputs .input:hover {
+  box-shadow: 0 0 5pt 2pt rgb(137, 149, 185);
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 6px;
+}
+.part-3 .container .inputs .input img {
+  margin: 0px 10px;
+  background-color: transparent;
+}
+.part-3 .container .inputs .input input {
+  padding: 10px;
+  width: 500px;
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-weight: normal;
+  color: black;
+  font-size: 14px;
+}
+.part-3 .container .inputs .input input::-moz-placeholder {
+  font-weight: normal;
+  font-size: 13px;
+  opacity: 0.3;
+  color: black;
+}
+.part-3 .container .inputs .input input::placeholder {
+  font-weight: normal;
+  font-size: 13px;
+  opacity: 0.3;
+  color: black;
+}
+.part-3 .container .inputs .form-error {
+  color: red;
+  font-size: 12px;
+}
+.part-3 .container .forget-pass {
+  margin-top: 27px;
+  color: #4e4e4e;
+  font-size: 13px;
+}
+.part-3 .container .forget-pass span {
+  color: #3c009d;
+  cursor: pointer;
+}
+.part-3 .container .submit-container {
+  display: flex;
+  gap: 30px;
+  margin: 40px auto;
+  align-items: center;
+}
+.part-3 .container .submit-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  color: #fff;
+  background-color: #212121;
+  border: none;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin: 12px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
 }
 
 .main-container .submit-btn-login {
@@ -587,15 +781,15 @@ form {
   padding: 12px 16px;
   border-radius: 6px;
   font-family: inherit;
-  border: 1px solid #ccc;
+  border: 0.4px solid black;
 }
 
 .form-container-fp .form-group-fp input::-moz-placeholder {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .form-container-fp .form-group-fp input::placeholder {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .form-container-fp .form-group-fp input:focus {

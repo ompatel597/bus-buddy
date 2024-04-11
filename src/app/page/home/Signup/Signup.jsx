@@ -58,7 +58,7 @@ const Signup = () => {
       <div className="part-1">
         <img src={People_waiting} alt="" />
       </div>
-      <div className="part-2">
+      <div className="part-2 signuppart2">
         <div className="container">
           <div className="header">
             <div className="text">Signup</div>

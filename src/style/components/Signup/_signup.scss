@@ -9,9 +9,27 @@
 			width: 100%;
 			height: 100%;
 			transform: scale(0.8);
+
+			@media (max-width: $sm) {
+				display: none;
+			  }
 		}
 	}
+
+	.signuppart2 {
+		
+		margin-top: 150px;
+		
+	
+	}
+
 	.part-2 {
+
+		@media (max-width: $sm) {
+			width: 100%;
+			margin-top: 20px;
+		  }
+
 		width: 50%;
 		background: white;
 		border-radius: 16px;
@@ -20,7 +38,14 @@
 		-webkit-backdrop-filter: blur(5px);
 		margin-right: 20px;
 		border-radius: 50px;
+		 
 		.container {
+
+			@media (max-width: $sm) {
+				max-width: 400px;
+				overflow: hidden;
+				scale: 0.9;
+			  }
 			max-width: 500px;
 			display: flex;
 			flex-direction: column;
@@ -40,14 +65,15 @@
 				display: flex;
 				flex-direction: column;
 				gap: 10px;
+				
 				.input {
-					box-shadow: 0 0 5pt 2pt #d3d3d3;
+					border: 0.9px solid black;
 					display: flex;
 					align-items: center;
 					background-color: white;
 					border-radius: 6px;
 					&:hover {
-						box-shadow: 0 0 5pt 2pt rgb(137, 149, 185);
+						box-shadow: 0 0 2pt 2pt rgb(210, 212, 216);
 						display: flex;
 						align-items: center;
 						background-color: white;

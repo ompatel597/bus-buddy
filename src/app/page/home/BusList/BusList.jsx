@@ -52,6 +52,7 @@ const BusList = () => {
         setBus(ress);
         if (ress.status === false) {
           toast.error("Bus not found")
+          
         }
         setloading(false)
       } catch (error) {

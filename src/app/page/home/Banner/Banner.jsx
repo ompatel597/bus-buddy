@@ -83,7 +83,7 @@ const   Banner = () => {
             <h1>Find cheap bus tickets <br />for your next trip</h1>
             <p>Easily compare and book your next trip with Busbud</p>
           </div>
-{ loading ? <div style={{marginLeft: 500, marginBottom: -130}} class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : 
+{ loading ? <div style={{marginLeft: 500, marginBottom: -130}} className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> : 
 <div className="search_form">
             <form onSubmit={handleSubmit}>
               <div className="source-starting">

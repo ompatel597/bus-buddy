@@ -82,7 +82,7 @@ const Login = () => {
 </div>
         
       </div>
-      <div className="part-2">
+      <div className="part-3">
         <form onSubmit={handleSubmit}>
           <div className="container">
             <div className="header">
